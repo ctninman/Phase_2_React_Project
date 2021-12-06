@@ -1,0 +1,36 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(oceanwaves.gif);
+  background-size: cover;
+}
+
+svg path {
+  fill: #79E17A;
+  stroke: orange;
+  stroke-width: 1.5;
+}
+
+svg path:hover {
+  fill: green;
+  transition: .3s;
+  cursor: pointer;
+}
+
+#AF {
+  background-image: url(ocean-waves.jpeg);
+  
+}
+
+.UnitedKingdom {
+  fill: purple
+}
+
+.UnitedStates {
+  fill:royalblue;
+}

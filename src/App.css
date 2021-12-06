@@ -1,5 +1,23 @@
 .App {
+  background-color: royalblue;
   text-align: center;
+}
+
+.country_card {
+  background-color: royalblue;
+  border-radius: 5px;
+  border: saddlebrown;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 220px;
+  display: inline-block;
+  align-content: center;
+  margin: 10px;
+}
+
+.flag_card {
+  max-width: 200px;
+  max-height: 130px;
 }
 
 .App-logo {
