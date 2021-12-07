@@ -1,10 +1,19 @@
 import CapitalCard from "./CapitalCard"
 
-function Capitals () {
+function Capitals ({countries}) {
+
+  console.log('capitaldata', countries)
   return (
     <div>
       <h1>Capitals</h1>
-      <CapitalCard />
+      {countries.map((country) => (
+        <CapitalCard 
+          key={country.name.common}
+          country={country}
+          style={{border: 5}} 
+          style={{backgroundColor: '#234234'}}
+        />
+      ))}
     </div>
   )
 }

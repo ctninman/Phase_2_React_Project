@@ -1,5 +1,6 @@
 import CapitalQuiz from "./CapitalQuiz"
 import ContinentQuiz from "./ContinentQuiz"
+import FlagQuiz from "./FlagQuiz"
 import PopulationQuiz from "./PopulationQuiz"
 
 
@@ -10,6 +11,7 @@ function Quizzes () {
       <ContinentQuiz />
       <CapitalQuiz />
       <PopulationQuiz />
+      <FlagQuiz />
     </div>
   )
 }

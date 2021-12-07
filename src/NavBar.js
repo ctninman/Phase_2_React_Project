@@ -22,6 +22,14 @@ function NavBar() {
         Home
       </NavLink>
       <NavLink
+        to='/countries'
+        exact
+        style={linkStyles}
+        activeStyle={{background: 'darkblue'}}
+      >
+        Countries
+      </NavLink>
+      <NavLink
         to='/capitals'
         exact
         style={linkStyles}

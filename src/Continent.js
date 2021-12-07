@@ -1,7 +1,7 @@
-function Continent () {
+function Continent ({country}) {
   return (
     <div>
-      <h1>Continent</h1>
+      <h1>{country.name.common}</h1>
     </div>
   )
 }
