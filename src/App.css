@@ -2,7 +2,7 @@
   background-image: url(world-line-map.jpg);
   background-attachment: fixed;
   background-size: cover;
-  height: 100vw;
+  min-height: 100vw;
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

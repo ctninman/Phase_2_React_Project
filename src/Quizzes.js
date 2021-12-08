@@ -6,7 +6,7 @@ import FlagQuiz from "./FlagQuiz"
 import PopulationQuiz from "./PopulationQuiz"
 
 
-function Quizzes ({countryData}) {
+function Quizzes ({countryData, orderNumbers}) {
   return (
     <>
       <div className='quiz-page'>
@@ -18,7 +18,7 @@ function Quizzes ({countryData}) {
         <Switch>
           <Route exact path='/quizzes' />
           <Route exact path='/quizzes/population-quiz' >
-            <PopulationQuiz className='quiz-menu' countryData={countryData}/>
+            <PopulationQuiz className='quiz-menu' countryData={countryData} orderNumbers={orderNumbers}/>
           </Route>
           <Route path='/quizzes/flag-quiz' >
             <FlagQuiz className='quiz-menu' countryData={countryData}/>

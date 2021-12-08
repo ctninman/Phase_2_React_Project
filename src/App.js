@@ -3,7 +3,6 @@ import { Route, Switch, } from 'react-router-dom'
 import Capitals from './Capitals'
 import Flags from './Flags'
 import Continents from './Continents'
-import Languages from './Languages'
 import Population from './Population'
 import Home from './Home'
 import Quizzes from './Quizzes';
@@ -68,7 +67,7 @@ function App() {
             <CountriesList alphabetizeCountries={alphabetize} countries={countries}/>
           </Route>
           <Route path='/quizzes'>
-            <Quizzes countryData={[...countries]}/>
+            <Quizzes countryData={[...countries]} orderNumbers={orderNumbers}/>
           </Route>
           <Route path='/capitals'>
             <Capitals countries={countries}/>
@@ -81,9 +80,6 @@ function App() {
           </Route>
           <Route exact path='/flags'>
             <Flags filterContinents={filterByContinent} allCountries={countries} countryList={countryList} onFlagPageLoad={setCountryList}/>
-          </Route>
-          <Route exact path='/languages'>
-            <Languages />
           </Route>
           <Route exact path='/'>
             <Home />

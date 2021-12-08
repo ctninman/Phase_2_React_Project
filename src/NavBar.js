@@ -54,14 +54,6 @@ function NavBar() {
         Flags
       </NavLink>
       <NavLink
-        to='/languages'
-        exact
-        style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
-      >
-        Languages
-      </NavLink>
-      <NavLink
         to='/population'
         exact
         style={linkStyles}
