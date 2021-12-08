@@ -1,7 +1,26 @@
 .App {
-  background-color: royalblue;
+  background-image: url(world-line-map.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vw;
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.NavBar {
+  background-color: teal;
+}
+
+.pop-icon {
+  background-color: royalblue;
+  border-radius: 5px;
+  border: saddlebrown;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 175px;
+  display: inline-block;
+  align-content: center;
+  margin: 10px;
 }
 
 .country_card {
@@ -45,6 +64,30 @@
   max-width: 95%;
   max-height: 120px;
   margin-top: 5px;
+}
+
+.quiz-menu {
+  display: "inline-block";
+  width: 70px;
+  padding: 12px;
+  margin: 10px;
+  color: white;
+  background-color: blue;
+  border-radius: 5px;
+}
+
+.quiz.page {
+  margin: 10px;
+}
+
+.menu-icon {
+  background-color: white;
+  width: fit-content;
+  
+}
+
+.quiz-tv {
+  background-color: yellow;
 }
 
 

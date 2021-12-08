@@ -1,7 +1,7 @@
-function PopulationQuiz () {
+function PopulationQuiz ({countryData}) {
   return (
-    <div>
-      <h1>PopulationQuiz</h1>
+    <div style={{justifyContent: 'center'}}>
+      <h1 className='menu-icon'>PopulationQuiz</h1>
     </div>
   )
 }

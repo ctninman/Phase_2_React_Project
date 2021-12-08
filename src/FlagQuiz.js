@@ -1,7 +1,7 @@
-function FlagQuiz () {
+function FlagQuiz ({countryData}) {
   return (
     <div>
-      <h1>FlagQuiz</h1>
+      <h1 className='menu-icon'>FlagQuiz</h1>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { useState } from "react"
 import Country from "./Country"
 import Filter from './Filter'
 
-function CountriesList ({countries}) {
+function CountriesList ({countries, alphabetizeCountries}) {
 
   const [searchText, setSearchText] = useState('')
 
@@ -14,7 +14,7 @@ function CountriesList ({countries}) {
     <div>
       <Filter onSearchText={searchText} onSetSearchText={setSearchText}/>
       <h1>Country Information</h1>
-      {filteredCountryList.map((country) => (
+      {filteredCountryList.sort(alphabetizeCountries).map((country) => (
         <Country 
           key={country.name.common}
           country={country}

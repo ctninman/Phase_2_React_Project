@@ -1,6 +1,13 @@
+import {useEffect} from "react"
+
 import Flag from './Flag'
 
-function Flags ({filterContinents, countryList}) {
+function Flags ({filterContinents, countryList, onFlagPageLoad, allCountries}) {
+
+  useEffect (() => {
+    onFlagPageLoad(allCountries)
+  }, [] )
+  
   return (
     <div>
       <h1>Flags</h1>
@@ -11,6 +18,7 @@ function Flags ({filterContinents, countryList}) {
       <button onClick={filterContinents} value={'Oceania'}>Oceania</button>
       <button onClick={filterContinents} value={'North America'}>North America</button>
       <button onClick={filterContinents} value={'South America'}>South America</button>
+      <br/>
       {countryList.map((country) => (
         <Flag 
           key={country.name.common}

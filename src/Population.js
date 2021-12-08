@@ -62,7 +62,12 @@ function Population ({countries}) {
 
       <ul className="Items">
         {countriesToDisplay.map((country) => (
-          <PopulationRow key={country.name.common} name={country.name.common} size={(country.population).toLocaleString()} continent={country.continents[0]} />
+          <PopulationRow 
+            key={country.name.common} 
+            name={country.name.common} 
+            size={(country.population).toLocaleString()} 
+            continent={country.continents[0]} 
+            flag={country.flag}/>
         ))}
       </ul>
     </div>

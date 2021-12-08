@@ -1,6 +1,9 @@
+import {useState} from "react"
 import Continent from "./Continent"
 
-function Continents ({filterContinents, countryList}) {
+function Continents ({alphabetize, filterContinents, countryList}) {
+
+  const [selectedButton, setSelectedButton] = useState('')
 
   console.log ('inContinent', countryList)
   return (
@@ -13,7 +16,8 @@ function Continents ({filterContinents, countryList}) {
       <button onClick={filterContinents} value={'Oceania'}>Oceania</button>
       <button onClick={filterContinents} value={'North America'}>North America</button>
       <button onClick={filterContinents} value={'South America'}>South America</button>
-      {countryList.map((country) => (
+      <h2>There are {countryList.length} countries in </h2>
+      {countryList.sort(alphabetize).map((country) => (
       <Continent 
         key={country.name.common}
         country={country}/>

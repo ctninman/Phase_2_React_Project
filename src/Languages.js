@@ -1,4 +1,6 @@
-function Languages () {
+function Languages ({flagQuizObject}) {
+  console.log(flagQuizObject);
+  
   return (
     <div>
       <h1>Languages</h1>

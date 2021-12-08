@@ -16,6 +16,8 @@ function App() {
   const [countries, setCountries] = useState([])
   const [countryList, setCountryList] = useState(countries)
 
+
+
   useEffect (() => {
   fetch('https://restcountries.com/v3.1/all')
     .then(res => res.json())
@@ -28,32 +30,57 @@ function App() {
 
   function filterByContinent (event) {
     const filteredContinent = countries.filter((country) => {
-      if (event.target.value === country.continents[0]) return true
-    })
+      if (event.target.value === 'all') {
+        return true
+      } else if (event.target.value === country.continents[0]) {
+        return true
+      }
+    }) 
     setCountryList(filteredContinent)
   }
 
+  function alphabetize ( a, b ) {
+    if ( a.name.common < b.name.common ){
+      return -1;
+    }
+    if ( a.name.common > b.name.common ){
+      return 1;
+    }
+    return 0;
+  }
+
+  function orderNumbers ( a, b ) {
+    if ( a.population < b.population ){
+      return 1;
+    }
+    if ( a.population > b.population ){
+      return -1;
+    }
+    return 0;
+  }
+
+
   return (
-    <div>
-      <NavBar />
+    <div className='App'>
+      <NavBar className='NavBar'/>
         <Switch>
         <Route exact path='/countries'>
-            <CountriesList countries={countries}/>
+            <CountriesList alphabetizeCountries={alphabetize} countries={countries}/>
           </Route>
           <Route path='/quizzes'>
-            <Quizzes />
+            <Quizzes countryData={[...countries]}/>
           </Route>
           <Route path='/capitals'>
             <Capitals countries={countries}/>
           </Route>
           <Route exact path='/continents'>
-            <Continents filterContinents={filterByContinent} countryList={countryList}/>
+            <Continents alphabetize={alphabetize} filterContinents={filterByContinent} countryList={countryList}/>
           </Route>
           <Route exact path='/population'>
-            <Population countries={countries}/>
+            <Population countries={[...countries.sort(orderNumbers)]}/>
           </Route>
           <Route exact path='/flags'>
-            <Flags filterContinents={filterByContinent} countryList={countryList}/>
+            <Flags filterContinents={filterByContinent} allCountries={countries} countryList={countryList} onFlagPageLoad={setCountryList}/>
           </Route>
           <Route exact path='/languages'>
             <Languages />
