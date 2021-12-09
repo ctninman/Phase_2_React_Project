@@ -44,6 +44,7 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
           <li>
             <button 
               name="Answer1" 
+              id="correct-answer"
               className={'capital-button'}
               value={capitalQuizCountry.name.common}
               onClick={handleCapitalAnswer}

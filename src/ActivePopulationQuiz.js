@@ -42,6 +42,7 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
         <li>
           <button 
             name="populationAnswer1" 
+            id='correct-answer'
             className={'population-button'}
             value={orderedCountriesArray[0].name.common}
             onClick={handlePopulationAnswer}

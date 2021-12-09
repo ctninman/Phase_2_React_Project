@@ -7,7 +7,7 @@ function CountriesList ({countries, alphabetizeCountries}) {
   const [searchText, setSearchText] = useState('')
 
   const filteredCountryList = countries.filter((country) => {
-    return country.name.common.toLowerCase().includes(searchText)
+    return country.name.common.toLowerCase().startsWith(searchText)
   })
 
   return (

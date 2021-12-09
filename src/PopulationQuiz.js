@@ -37,6 +37,7 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
       } else {
         event.target.style.backgroundColor = 'red'
         event.target.style.color = 'white'
+        document.getElementById('correct-answer').style.backgroundColor = 'green'
      }
       setPopulationResponseGiven(true)
     }

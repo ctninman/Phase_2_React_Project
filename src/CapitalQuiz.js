@@ -40,6 +40,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore}) {
       } else {
         event.target.style.backgroundColor = 'red'
         event.target.style.color = 'white'
+        document.getElementById('correct-answer').style.backgroundColor = 'green'
       }
       setCapitalResponseGiven(true)
     }

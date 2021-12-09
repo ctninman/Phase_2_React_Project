@@ -1,4 +1,4 @@
-function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, incorrectFlagThree, handleFlagAnswer, setNextFlagQuestion}) {
+function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, incorrectFlagThree, handleFlagAnswer, setNextFlagQuestion, flagQuizScore, currentFlagQuestion}) {
   
   function randomizeItems(items)
   {
@@ -32,8 +32,8 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
   }
 
   return (
-  <div className='quiz-tv'>
-     <h1 className='menu-icon'>FlagQuiz</h1>
+  <div className='quiz-tv' id='flag-quiz-tv'>
+     <h1 className='menu-icon'>FlagQuiz   Question: {currentFlagQuestion}/25   Score:{flagQuizScore}</h1>
       <div>
         <img src={flagQuizCountry.flags.png} />
         <h1>Which country's flag is this?</h1>
@@ -43,6 +43,8 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
           <li>
               <button 
                 name="flagAnswer1" 
+                id="correct-answer"
+                className={'flag-button'}
                 value={flagQuizCountry.name.common}
                 onClick={handleFlagAnswer}
               > {flagQuizCountry.name.common} </button>
@@ -50,6 +52,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
           <li>
               <button 
                 name="flagAnswer2"
+                className={'flag-button'}
                 value={incorrectFlagOne.name.common}
                 onClick={handleFlagAnswer}
                 > {incorrectFlagOne.name.common} </button>
@@ -57,6 +60,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
           <li>
               <button 
               name="flagAnswer3"
+              className={'flag-button'}
               value={incorrectFlagTwo.name.common}
               onClick={handleFlagAnswer}
               > {incorrectFlagTwo.name.common} </button>
@@ -64,6 +68,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
           <li>
               <button 
                 name="flagAnswer4"
+                className={'flag-button'}
                 value={incorrectFlagThree.name.common}
                 onClick={handleFlagAnswer}
                 > {incorrectFlagThree.name.common} </button>

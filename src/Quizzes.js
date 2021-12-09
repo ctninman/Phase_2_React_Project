@@ -11,10 +11,10 @@ import PopulationQuiz from "./PopulationQuiz"
 
 function Quizzes ({countryData, orderNumbers}) {
 
-  const [continentHighScore, setContinentHighScore] = useState(1)
-  const [flagHighScore, setFlagHighScore] = useState(1)
-  const [capitalHighScore, setCapitalHighScore] = useState(1)
-  const [populationHighScore, setPopulationHighScore] = useState(1)
+  const [continentHighScore, setContinentHighScore] = useState(0)
+  const [flagHighScore, setFlagHighScore] = useState(0)
+  const [capitalHighScore, setCapitalHighScore] = useState(0)
+  const [populationHighScore, setPopulationHighScore] = useState(0)
 
   return (
     <>
