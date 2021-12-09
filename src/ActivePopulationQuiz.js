@@ -44,28 +44,28 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
             name="populationAnswer1" 
             value={orderedCountriesArray[0].name.common}
             onClick={handlePopulationAnswer}
-          > {orderedCountriesArray[0].name.common} {orderedCountriesArray[0].population}</button>
+          > {orderedCountriesArray[0].name.common} </button>
         </li>
         <li>
           <button 
             name="populationAnswer2"
             value={orderedCountriesArray[1].name.common}
             onClick={handlePopulationAnswer}
-            > {orderedCountriesArray[1].name.common} {orderedCountriesArray[1].population}</button>
+            > {orderedCountriesArray[1].name.common} </button>
         </li>
         <li>
           <button 
           name="populationAnswer3"
           value={orderedCountriesArray[2].name.common}
           onClick={handlePopulationAnswer}
-          > {orderedCountriesArray[2].name.common} {orderedCountriesArray[2].population}</button>
+          > {orderedCountriesArray[2].name.common} </button>
         </li>
         <li>
           <button 
             name="populationAnswer4"
             value={orderedCountriesArray[3].name.common}
             onClick={handlePopulationAnswer}
-            > {orderedCountriesArray[3].name.common} {orderedCountriesArray[3].population}</button>
+            > {orderedCountriesArray[3].name.common}</button>
         </li>
       </ul>
     </div>

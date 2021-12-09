@@ -31,6 +31,8 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
     setNextCapitalQuestion()
   }
 
+  
+
     return (
     <div className='quiz-tv'>
        <h1 className='menu-icon'>CapitalQuiz</h1>
@@ -44,28 +46,28 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
               name="Answer1" 
               value={capitalQuizCountry.name.common}
               onClick={handleCapitalAnswer}
-            > {capitalQuizCountry.name.common} </button>
+            > {capitalQuizCountry.flag} {capitalQuizCountry.name.common} </button>
           </li>
           <li>
             <button 
               name="Answer2"
               value={incorrectOne.name.common}
               onClick={handleCapitalAnswer}
-            > {incorrectOne.name.common} </button>
+            > {incorrectOne.flag} {incorrectOne.name.common} </button>
           </li>
           <li>
             <button 
             name="Answer3"
             value={incorrectTwo.name.common}
             onClick={handleCapitalAnswer}
-          > {incorrectTwo.name.common} </button>
+          > {incorrectTwo.flag} {incorrectTwo.name.common} </button>
           </li>
           <li>
             <button 
               name="Answer4"
               value={incorrectThree.name.common}
               onClick={handleCapitalAnswer}
-            > {incorrectThree.name.common} </button>
+            > {incorrectThree.flag} {incorrectThree.name.common} </button>
           </li>
         </ul>
       </div>

@@ -3,7 +3,7 @@ import ActiveFlagQuiz from './ActiveFlagQuiz';
 import StartScreen from './StartScreen';
 
 
-function FlagQuiz ({countryData}) {
+function FlagQuiz ({countryData, flagHighScore, setFlagHighScore}) {
 
   let randomCountry = countryData[Math.floor(Math.random()*countryData.length)];
   let randomWrongOne = countryData[Math.floor(Math.random()*countryData.length)];
@@ -41,7 +41,10 @@ function FlagQuiz ({countryData}) {
     <div>
       {flagQuizCountry === randomCountry
         ? 
-        <StartScreen startQuiz={setNextFlagQuestion}/> 
+        <StartScreen 
+          startQuiz={setNextFlagQuestion}
+          message={'Flags High Score'}
+          highScore={flagHighScore}/> 
         : 
         <ActiveFlagQuiz
           flagQuizCountry={flagQuizCountry}

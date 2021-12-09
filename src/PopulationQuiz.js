@@ -3,7 +3,7 @@ import ActivePopulationQuiz from './ActivePopulationQuiz';
 import StartScreen from './StartScreen';
 
 
-function PopulationQuiz ({countryData, orderNumbers}) {
+function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPopulationHighScore}) {
 
   let randomCountry = countryData[Math.floor(Math.random()*countryData.length)];
   let randomWrongOne = countryData[Math.floor(Math.random()*countryData.length)];
@@ -40,7 +40,10 @@ console.log('rca', randomCountryArray);
     <div>
       {orderedCountriesArray === randomCountryArray
         ? 
-        <StartScreen startQuiz={setNextPopulationQuestion}/> 
+        <StartScreen 
+          startQuiz={setNextPopulationQuestion}
+          message={'Population High Score:'}
+          highScore={populationHighScore}/> 
         : 
         <ActivePopulationQuiz
           orderedCountriesArray={orderedCountriesArray}

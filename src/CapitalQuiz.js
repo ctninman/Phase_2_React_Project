@@ -3,7 +3,7 @@ import ActiveCapitalQuiz from './ActiveCapitalQuiz'
 import StartScreen from './StartScreen'
 
 
-function CapitalQuiz ({countryData}) {
+function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore}) {
   
   let randomCountry = countryData[Math.floor(Math.random()*countryData.length)];
   let randomWrongOne = countryData[Math.floor(Math.random()*countryData.length)];
@@ -41,7 +41,10 @@ function CapitalQuiz ({countryData}) {
     <div>
       {capitalQuizCountry === randomCountry
         ? 
-        <StartScreen startQuiz={setNextCapitalQuestion}/> 
+        <StartScreen 
+          startQuiz={setNextCapitalQuestion}
+          message={'Capitals High Score:'}
+          highScore={capitalHighScore}/> 
         : 
         <ActiveCapitalQuiz
           capitalQuizCountry={capitalQuizCountry}
