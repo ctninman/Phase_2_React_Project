@@ -67,7 +67,7 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore}
         ? 
         <StartScreen 
           startQuiz={setNextQuestion}
-          message={'Population High Score:'}
+          message={'Continents High Score:'}
           highScore={continentHighScore}/> 
         : 
         <ActiveContinentQuiz 

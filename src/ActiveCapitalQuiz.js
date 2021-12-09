@@ -1,4 +1,4 @@
-function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, incorrectThree, handleCapitalAnswer, setNextCapitalQuestion}) {
+function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, incorrectThree, handleCapitalAnswer, setNextCapitalQuestion, capitalQuizScore, currentCapitalQuestion}) {
   
   function randomizeItems(items)
   {
@@ -34,8 +34,8 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
   
 
     return (
-    <div className='quiz-tv'>
-       <h1 className='menu-icon'>CapitalQuiz</h1>
+    <div className='quiz-tv' id="capital-quiz-tv">
+       <h1 className='menu-icon'>CapitalQuiz Question:{currentCapitalQuestion}/25  Score:{capitalQuizScore}</h1>
       <div>
         <h1>{capitalQuizCountry.capital[0]} is the capital of which country?</h1>
       </div>
@@ -44,6 +44,7 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
           <li>
             <button 
               name="Answer1" 
+              className={'capital-button'}
               value={capitalQuizCountry.name.common}
               onClick={handleCapitalAnswer}
             > {capitalQuizCountry.flag} {capitalQuizCountry.name.common} </button>
@@ -51,6 +52,7 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
           <li>
             <button 
               name="Answer2"
+              className={'capital-button'}
               value={incorrectOne.name.common}
               onClick={handleCapitalAnswer}
             > {incorrectOne.flag} {incorrectOne.name.common} </button>
@@ -58,6 +60,7 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
           <li>
             <button 
             name="Answer3"
+            className={'capital-button'}
             value={incorrectTwo.name.common}
             onClick={handleCapitalAnswer}
           > {incorrectTwo.flag} {incorrectTwo.name.common} </button>
@@ -65,6 +68,7 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
           <li>
             <button 
               name="Answer4"
+              className={'capital-button'}
               value={incorrectThree.name.common}
               onClick={handleCapitalAnswer}
             > {incorrectThree.flag} {incorrectThree.name.common} </button>

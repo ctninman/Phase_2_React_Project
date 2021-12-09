@@ -1,4 +1,4 @@
-function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, setNextPopulationQuestion}) {
+function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, setNextPopulationQuestion, populationQuizScore, currentPopulationQuestion}) {
   
   function randomizeItems(items)
   {
@@ -32,8 +32,8 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
   }
 
   return (
-  <div className='quiz-tv'>
-     <h1 className='menu-icon'>Population Quiz</h1>
+  <div className='quiz-tv' id="population-quiz-tv">
+     <h1 className='menu-icon'>Population Quiz  Question: {currentPopulationQuestion}/25   Score:{populationQuizScore}</h1>
     <div>
       <h1>Which of these countries has the highest population?</h1>
     </div>
@@ -42,6 +42,7 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
         <li>
           <button 
             name="populationAnswer1" 
+            className={'population-button'}
             value={orderedCountriesArray[0].name.common}
             onClick={handlePopulationAnswer}
           > {orderedCountriesArray[0].name.common} </button>
@@ -49,6 +50,7 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
         <li>
           <button 
             name="populationAnswer2"
+            className={'population-button'}
             value={orderedCountriesArray[1].name.common}
             onClick={handlePopulationAnswer}
             > {orderedCountriesArray[1].name.common} </button>
@@ -56,6 +58,7 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
         <li>
           <button 
           name="populationAnswer3"
+          className={'population-button'}
           value={orderedCountriesArray[2].name.common}
           onClick={handlePopulationAnswer}
           > {orderedCountriesArray[2].name.common} </button>
@@ -63,6 +66,7 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
         <li>
           <button 
             name="populationAnswer4"
+            className={'population-button'}
             value={orderedCountriesArray[3].name.common}
             onClick={handlePopulationAnswer}
             > {orderedCountriesArray[3].name.common}</button>
