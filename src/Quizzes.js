@@ -9,12 +9,14 @@ import FlagQuiz from "./FlagQuiz"
 import PopulationQuiz from "./PopulationQuiz"
 
 
-function Quizzes ({countryData, orderNumbers}) {
+function Quizzes ({countryData, orderNumbers, fullUserObject}) {
 
-  const [continentHighScore, setContinentHighScore] = useState(0)
-  const [flagHighScore, setFlagHighScore] = useState(0)
-  const [capitalHighScore, setCapitalHighScore] = useState(0)
-  const [populationHighScore, setPopulationHighScore] = useState(0)
+  const [continentHighScore, setContinentHighScore] = useState(fullUserObject.continentsHighScore)
+  const [flagHighScore, setFlagHighScore] = useState(fullUserObject.flagsHighScore)
+  const [capitalHighScore, setCapitalHighScore] = useState(fullUserObject.capitalsHighScore)
+  const [populationHighScore, setPopulationHighScore] = useState(fullUserObject.populationHighScore)
+
+
 
   return (
     <>
@@ -31,7 +33,8 @@ function Quizzes ({countryData, orderNumbers}) {
               continentHighScore={continentHighScore}
               populationHighScore={populationHighScore}
               flagHighScore={flagHighScore}
-              capitalHighScore={capitalHighScore}/>
+              capitalHighScore={capitalHighScore}
+              fullUserObject={fullUserObject}/>
           </Route>
           <Route exact path='/quizzes/population-quiz' >
             <PopulationQuiz 
@@ -39,7 +42,8 @@ function Quizzes ({countryData, orderNumbers}) {
               countryData={countryData} 
               orderNumbers={orderNumbers}
               populationHighScore={populationHighScore}
-              setPopulationHighScore={setPopulationHighScore}/>
+              setPopulationHighScore={setPopulationHighScore}
+              fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/quizzes/flag-quiz' >
             <FlagQuiz 

@@ -4,7 +4,7 @@ import ActivePopulationQuiz from './ActivePopulationQuiz';
 import StartScreen from './StartScreen';
 
 
-function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPopulationHighScore}) {
+function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPopulationHighScore, fullUserObject}) {
 
   let history = useHistory()
 
@@ -45,19 +45,20 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
 
   
   function setNextPopulationQuestion () {
-    console.log('clicky')
+  
     let newRandomCorrectCountry = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomCountriesArray = [newRandomCorrectCountry, newRandomIncorrectOne, newRandomIncorrectTwo, newRandomIncorrectThree]
+
     setOrderedContriesArray(newRandomCountriesArray.sort(orderNumbers))
 
     let nextQuestion = currentPopulationQuestion + 1
     setCurrentPopulationQuestion(nextQuestion)
     setPopulationResponseGiven(false)
     resetButtonColors()
-    if (currentPopulationQuestion >= 5){
+    if (currentPopulationQuestion >= 25){
       if (populationQuizScore > populationHighScore) {
         setPopulationHighScore(populationQuizScore)
         document.getElementById('population-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${populationQuizScore}</h1> <button id='newHS'>View High Scores</button>`
@@ -87,6 +88,8 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
           handlePopulationAnswer={handlePopulationAnswer}
           setNextPopulationQuestion={setNextPopulationQuestion}
           populationQuizScore={populationQuizScore}
+          fullUserObject={fullUserObject}
+          currentPopulationQuestion={currentPopulationQuestion}
         />}
     </div>
   )

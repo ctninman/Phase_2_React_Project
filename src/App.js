@@ -13,9 +13,10 @@ import './App.css'
 
 function App() {
 
- 
   const [countries, setCountries] = useState([])
   const [countryList, setCountryList] = useState(countries)
+  const [userName, setUserName] = useState('')
+  const [fullUserObject, setFullUserObject] = useState({})
 
 
 
@@ -63,13 +64,18 @@ function App() {
 
   return (
     <div className='App'>
-      <NavBar className='NavBar'/>
+      <NavBar 
+        className='NavBar'
+        userName={userName}
+        fullUserObject={fullUserObject} 
+        setUserName={setUserName}
+        setFullUserObject={setFullUserObject}/>
         <Switch>
         <Route exact path='/countries'>
             <CountriesList alphabetizeCountries={alphabetize} countries={countries}/>
           </Route>
           <Route path='/quizzes'>
-            <Quizzes countryData={[...countries]} orderNumbers={orderNumbers}/>
+            <Quizzes countryData={[...countries]} orderNumbers={orderNumbers} fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/capitals'>
             <Capitals countries={countries}/>

@@ -45,7 +45,7 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore}
     setCurrentContinentQuestion(nextQuestion)
     setContinentResponseGiven(false)
     resetButtonColors()
-    if (currentContinentQuestion >= 5){
+    if (currentContinentQuestion >= 25){
       if (continentQuizScore > continentHighScore) {
         setContinentHighScore(continentQuizScore)
         document.getElementById('continent-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${continentQuizScore}</h1> <button id='newHS'>View High Scores</button>`

@@ -58,7 +58,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore}) {
     setCurrentFlagQuestion(nextQuestion)
     setFlagResponseGiven(false)
     resetButtonColors()
-    if (currentFlagQuestion >= 5){
+    if (currentFlagQuestion >= 25){
       if (flagQuizScore > flagHighScore) {
         setFlagHighScore(flagQuizScore)
         document.getElementById('flag-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${flagQuizScore}</h1> <button id='newHS'>View High Scores</button>`
@@ -91,6 +91,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore}) {
           handleFlagAnswer={handleFlagAnswer}
           setNextFlagQuestion={setNextFlagQuestion}
           flagQuizScore={flagQuizScore}
+          currentFlagQuestion={currentFlagQuestion}
           />}
     </div>
   )

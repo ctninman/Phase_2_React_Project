@@ -57,11 +57,11 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore}) {
     setIncorrectThree(newRandomIncorrectThree)
 
 
-    let nextQuestion = currentCapitalQuestion + 1
-    setCurrentCapitalQuestion(nextQuestion)
+    let nextCapitalQuestion = currentCapitalQuestion + 1
+    setCurrentCapitalQuestion(nextCapitalQuestion)
     setCapitalResponseGiven(false)
     resetButtonColors()
-    if (currentCapitalQuestion >= 5){
+    if (currentCapitalQuestion >= 25){
       if (capitalQuizScore > capitalHighScore) {
         setCapitalHighScore(capitalQuizScore)
         document.getElementById('capital-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${capitalQuizScore}</h1> <button id='newHS'>View High Scores</button>`
@@ -93,6 +93,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore}) {
           incorrectThree={incorrectThree}
           handleCapitalAnswer={handleCapitalAnswer}
           setNextCapitalQuestion={setNextCapitalQuestion}
+          currentCapitalQuestion={currentCapitalQuestion}
           capitalQuizScore={capitalQuizScore}
           />}
     </div>
