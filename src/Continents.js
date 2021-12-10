@@ -1,11 +1,7 @@
-import {useState} from "react"
 import Continent from "./Continent"
 
 function Continents ({alphabetize, filterContinents, countryList}) {
 
-  const [selectedButton, setSelectedButton] = useState('')
-
-  console.log ('inContinent', countryList)
   return (
     <div>
       <h1>Continents</h1>

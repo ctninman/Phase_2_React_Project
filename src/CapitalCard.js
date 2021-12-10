@@ -7,9 +7,18 @@ function CapitalCard ({country}) {
   return (
     <div onClick={() => setRevealCapital(!revealCapital)} className='capital_card'>
 
-      {revealCapital ?  <div> {country.capital} </div>  : <div> <img className='capital_card_flag' src={country.flags.png} />
-      <h3>{country.name.common}</h3>
-      </div> }
+      {revealCapital 
+        ?  
+        <div> {country.capital} </div>  
+        : 
+        <div>   
+          <img 
+            className='capital_card_flag' 
+            src={country.flags.png} 
+            alt='Flag'/>
+          <h3>{country.name.common}</h3>
+        </div> 
+      }
     </div>  
   )
 }

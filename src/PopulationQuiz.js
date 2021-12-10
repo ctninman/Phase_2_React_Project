@@ -61,6 +61,7 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     if (currentPopulationQuestion >= 25){
       if (populationQuizScore > populationHighScore) {
         setPopulationHighScore(populationQuizScore)
+        patchUserData()
         document.getElementById('population-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${populationQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -72,6 +73,14 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
         })
       }
     }
+  }
+
+  const patchUserData = function () {  
+    fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({populationHighScore: populationQuizScore}),
+    })
   }
 
   return (

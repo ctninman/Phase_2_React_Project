@@ -4,7 +4,7 @@ import ActiveFlagQuiz from './ActiveFlagQuiz';
 import StartScreen from './StartScreen';
 
 
-function FlagQuiz ({countryData, flagHighScore, setFlagHighScore}) {
+function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject}) {
 
   let history = useHistory()
 
@@ -61,6 +61,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore}) {
     if (currentFlagQuestion >= 25){
       if (flagQuizScore > flagHighScore) {
         setFlagHighScore(flagQuizScore)
+        patchUserData()
         document.getElementById('flag-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${flagQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -72,6 +73,14 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore}) {
         })
       }
     }
+  }
+
+  const patchUserData = function () {  
+    fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({flagsHighScore: flagQuizScore}),
+    })
   }
 
   return (

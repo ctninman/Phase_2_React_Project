@@ -35,7 +35,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
   <div className='quiz-tv' id='flag-quiz-tv'>
      <h1 className='menu-icon'>FlagQuiz   Question: {currentFlagQuestion}/25   Score:{flagQuizScore}</h1>
       <div>
-        <img src={flagQuizCountry.flags.png} />
+        <img src={flagQuizCountry.flags.png} alt='Random Flag'/>
         <h1>Which country's flag is this?</h1>
       </div>
       <div>

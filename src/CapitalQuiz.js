@@ -4,7 +4,7 @@ import ActiveCapitalQuiz from './ActiveCapitalQuiz'
 import StartScreen from './StartScreen'
 
 
-function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore}) {
+function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullUserObject}) {
   
   let history = useHistory()
 
@@ -64,6 +64,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore}) {
     if (currentCapitalQuestion >= 25){
       if (capitalQuizScore > capitalHighScore) {
         setCapitalHighScore(capitalQuizScore)
+        patchUserData()
         document.getElementById('capital-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${capitalQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -75,6 +76,14 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore}) {
         })
       }
     }
+  }
+
+  const patchUserData = function () {  
+    fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({capitalsHighScore: capitalQuizScore}),
+    })
   }
 
   return (

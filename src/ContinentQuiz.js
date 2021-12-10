@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import StartScreen from './StartScreen';
 import ActiveContinentQuiz from './ActiveContinentQuiz';
 
-function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore}) {
+function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore, fullUserObject}) {
   
   let history = useHistory ()
 
@@ -48,6 +48,7 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore}
     if (currentContinentQuestion >= 25){
       if (continentQuizScore > continentHighScore) {
         setContinentHighScore(continentQuizScore)
+        patchUserData()
         document.getElementById('continent-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${continentQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -59,6 +60,14 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore}
         })
       }
     }
+  }
+
+  const patchUserData = function () {  
+    fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({continentsHighScore: continentQuizScore}),
+    })
   }
   
   return (

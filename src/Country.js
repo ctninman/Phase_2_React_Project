@@ -9,7 +9,7 @@ function Country ({country}) {
   return (
     <div className={'country_card'}>
       <h2 style={{textAlign: 'center'}}>{country.name.common}</h2>
-      <img className={'flag_card'} src={country.flags.png}  />
+      <img className={'flag_card'} src={country.flags.png} alt="Flag" />
       <h5 style={{textAlign: 'center', marginTop: '0px'}}>{nativeNameObject[0].common}</h5>
       <h3>Capital: {country.capital}</h3>
       <h4>Continent: {country.continents[0]}</h4>

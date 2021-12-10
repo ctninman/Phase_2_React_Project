@@ -3,9 +3,9 @@
     {
       "id": 1,
       "userName": "Woody",
-      "flagsHighScore": 4,
+      "flagsHighScore": 7,
       "populationHighScore": 5,
-      "continentsHighScore": 6,
+      "continentsHighScore": 8,
       "capitalsHighScore": 7
     },
     {
@@ -20,16 +20,16 @@
       "userName": "jim",
       "flagsHighScore": 4,
       "populationHighScore": 5,
-      "continentsHighScore": 4,
+      "continentsHighScore": 7,
       "capitalsHighScore": 5,
       "id": 3
     },
     {
       "userName": "pete",
       "flagsHighScore": 0,
-      "populationHighScore": 0,
+      "populationHighScore": 2,
       "continentsHighScore": 0,
-      "capitalsHighScore": 0,
+      "capitalsHighScore": 2,
       "id": 4
     },
     {
@@ -71,6 +71,30 @@
       "continentsHighScore": 0,
       "capitalsHighScore": 0,
       "id": 9
+    },
+    {
+      "userName": "gertrude",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 10
+    },
+    {
+      "userName": "Beatrice",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 11
+    },
+    {
+      "userName": "Jim",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 12
     }
   ]
 }

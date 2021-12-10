@@ -18,6 +18,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject}) {
 
 
 
+
   return (
     <>
       <div className='quiz-page'>
@@ -50,21 +51,24 @@ function Quizzes ({countryData, orderNumbers, fullUserObject}) {
               className='quiz-menu' 
               countryData={countryData}
               flagHighScore={flagHighScore}
-              setFlagHighScore={setFlagHighScore}/>
+              setFlagHighScore={setFlagHighScore}
+              fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/quizzes/continent-quiz'> 
             <ContinentQuiz 
               className='quiz-menu' 
               countryData={countryData}
               continentHighScore={continentHighScore}
-              setContinentHighScore={setContinentHighScore}/>
+              setContinentHighScore={setContinentHighScore}
+              fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/quizzes/capital-quiz' >
             <CapitalQuiz 
               className='quiz-menu' 
               countryData={countryData}
               capitalHighScore={capitalHighScore}
-              setCapitalHighScore={setCapitalHighScore}/>
+              setCapitalHighScore={setCapitalHighScore}
+              fullUserObject={fullUserObject}/>
           </Route>
         </Switch>
       </div>
