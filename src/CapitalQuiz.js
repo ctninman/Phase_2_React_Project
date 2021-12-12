@@ -27,8 +27,8 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     let capitalButtons = document.getElementsByClassName("capital-button");
     let i;
     for (i = 0; i < capitalButtons.length; i++) {
-      capitalButtons[i].style.backgroundColor = "white";
-      capitalButtons[i].style.color = "red";
+      capitalButtons[i].style.backgroundColor = "lightgray";
+      capitalButtons[i].style.color = "black";
     }
   }
 

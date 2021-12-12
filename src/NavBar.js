@@ -6,9 +6,10 @@ const linkStyles = {
   width: "70px",
   padding: "12px",
   margin: "0 6px 6px",
-  background: "blue",
+  background: "#CE8C4E",
   textDecoration: "none",
   color: "white",
+  borderRadius: '5px'
 };
 
 function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {

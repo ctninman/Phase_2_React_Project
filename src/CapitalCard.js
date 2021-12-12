@@ -9,14 +9,17 @@ function CapitalCard ({country}) {
 
       {revealCapital 
         ?  
-        <div> {country.capital} </div>  
+        <div style ={{display: 'flex', justifyContent: 'center', backgroundColor: 'white', height: '120px', width: '150px', borderRadius: '5px', color: 'darkblue'}}> 
+            <h3>{country.capital}</h3>
+          </div>  
         : 
-        <div>   
+        <div style={{display: 'inline-block', textAlign: 'center'}}>   
           <img 
+            style={{height: '75px', border: '2px solid', borderRadius: '3px', alignSelf: 'center'}}
             className='capital_card_flag' 
             src={country.flags.png} 
             alt='Flag'/>
-          <h3>{country.name.common}</h3>
+          <h3 style={{textAlign: 'center', backgroundColor: 'white', padding: '5px', borderRadius: '5px', marginTop: '5px', overflowWrap: 'anywhere'}}>{country.name.common}</h3>
         </div> 
       }
     </div>  

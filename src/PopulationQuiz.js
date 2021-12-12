@@ -24,8 +24,8 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     let populationButtons = document.getElementsByClassName("population-button");
     let i;
     for (i = 0; i < populationButtons.length; i++) {
-      populationButtons[i].style.backgroundColor = "white";
-      populationButtons[i].style.color = "red";
+      populationButtons[i].style.backgroundColor = "lightgray";
+      populationButtons[i].style.color = "black";
     }
   }
 

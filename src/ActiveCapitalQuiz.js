@@ -37,10 +37,10 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
     <div className='quiz-tv' id="capital-quiz-tv">
        <h1 className='menu-icon'>CapitalQuiz Question:{currentCapitalQuestion}/25  Score:{capitalQuizScore}</h1>
       <div>
-        <h1>{capitalQuizCountry.capital[0]} is the capital of which country?</h1>
+        <h1 className='tab-header' style={{backgroundColor: 'black', color: 'white', marginLeft: '50px', marginRight: '50px'}}>{capitalQuizCountry.capital[0]} is the capital of which country?</h1>
       </div>
       <div>
-        <ul id='capital-quiz-buttons'>
+        <ul style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}} id='capital-quiz-buttons'>
           <li>
             <button 
               name="Answer1" 

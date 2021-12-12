@@ -31,20 +31,30 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
     setNextFlagQuestion()
   }
 
+
   return (
   <div className='quiz-tv' id='flag-quiz-tv'>
-     <h1 className='menu-icon'>FlagQuiz   Question: {currentFlagQuestion}/25   Score:{flagQuizScore}</h1>
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent:'space-between'}}>
+      <h1 className='menu-icon'>FlagQuiz</h1>
+      <h1 style={{paddingRight: '25px'}}>Question: {currentFlagQuestion}/25 {'   '} Score:{flagQuizScore}</h1>
+    </div>
       <div>
-        <img src={flagQuizCountry.flags.png} alt='Random Flag'/>
-        <h1>Which country's flag is this?</h1>
+        <div style={{height: '210px'}}>
+          <img style={{height: '210px'}} className='flag-image' src={flagQuizCountry.flags.png} alt='Random Flag'/>
+        </div>
+        <div>
+          <h1 className='tab-header' style={{backgroundColor: 'black', color: 'white', marginLeft: '200px', marginRight: '200px'}}>Which country's flag is this?</h1>
+        </div>
       </div>
-      <div>
-        <ul id='flag-quiz-buttons'>
+      <div id='flag-quiz-container'>
+        <ul style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id='flag-quiz-buttons'>
           <li>
               <button 
                 name="flagAnswer1" 
                 id="correct-answer"
                 className={'flag-button'}
+                style={{backgroundColor: 'lightgray'}}
+                style={{color: 'black'}}
                 value={flagQuizCountry.name.common}
                 onClick={handleFlagAnswer}
               > {flagQuizCountry.name.common} </button>
@@ -53,6 +63,8 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
               <button 
                 name="flagAnswer2"
                 className={'flag-button'}
+                style={{backgroundColor: 'lightgray'}}
+                style={{color: 'black'}}
                 value={incorrectFlagOne.name.common}
                 onClick={handleFlagAnswer}
                 > {incorrectFlagOne.name.common} </button>
@@ -61,6 +73,8 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
               <button 
               name="flagAnswer3"
               className={'flag-button'}
+              style={{backgroundColor: 'lightgray'}}
+              style={{color: 'black'}}
               value={incorrectFlagTwo.name.common}
               onClick={handleFlagAnswer}
               > {incorrectFlagTwo.name.common} </button>
@@ -69,6 +83,8 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
               <button 
                 name="flagAnswer4"
                 className={'flag-button'}
+                style={{backgroundColor: 'lightgray'}}
+                style={{color: 'black'}}
                 value={incorrectFlagThree.name.common}
                 onClick={handleFlagAnswer}
                 > {incorrectFlagThree.name.common} </button>

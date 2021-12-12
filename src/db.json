@@ -95,6 +95,14 @@
       "continentsHighScore": 0,
       "capitalsHighScore": 0,
       "id": 12
+    },
+    {
+      "userName": "MATTEO",
+      "flagsHighScore": 25,
+      "populationHighScore": 13,
+      "continentsHighScore": 19,
+      "capitalsHighScore": 11,
+      "id": 13
     }
   ]
 }

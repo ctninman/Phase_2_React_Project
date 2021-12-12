@@ -12,8 +12,10 @@ function CountriesList ({countries, alphabetizeCountries}) {
 
   return (
     <div>
+      <div>
+        <h1 className='tab-header'>Country Information</h1>
+      </div>
       <Filter onSearchText={searchText} onSetSearchText={setSearchText}/>
-      <h1>Country Information</h1>
       {filteredCountryList.sort(alphabetizeCountries).map((country) => (
         <Country 
           key={country.name.common}

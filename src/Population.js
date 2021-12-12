@@ -38,38 +38,42 @@ function Population ({countries}) {
   
   return (
     <div>
-      <h1>Population</h1>
-      <select onChange={handleContinentChange} name="continent_select" id="continent_select">
-        <option value="all">All Continents</option>
-        <option value="Africa">Africa</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-        <option value="North America">North America</option>
-        <option value="South America">South America</option>
-      </select>
+      <div>
+        <h1 className='tab-header'>Population</h1>
+      </div>
+      <div>
+        <select onChange={handleContinentChange} name="continent_select" id="continent_select">
+          <option value="all">All Continents</option>
+          <option value="Africa">Africa</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+          <option value="North America">North America</option>
+          <option value="South America">South America</option>
+        </select>
 
-      <select onChange={handleSizeChange} name="size_select" id="size_select">
-        <option value="all_sizes">All Sizes</option>
-        <option value="extra_large">Greater than 100 Million</option>
-        <option value="large">Between 50 Million - 100 Million</option>
-        <option value="medium">Between 10 Million - 50 Million</option>
-        <option value="small">Between 1 Million - 10 Million</option>
-        <option value="extra_small">Less than 1 Million</option>
-      </select>
+        <select onChange={handleSizeChange} name="size_select" id="size_select">
+          <option value="all_sizes">All Sizes</option>
+          <option value="extra_large">Greater than 100 Million</option>
+          <option value="large">Between 50 Million - 100 Million</option>
+          <option value="medium">Between 10 Million - 50 Million</option>
+          <option value="small">Between 1 Million - 10 Million</option>
+          <option value="extra_small">Less than 1 Million</option>
+        </select>
 
-      <h3>There {countriesToDisplay.length === 1 ? 'is' : 'are'} {countriesToDisplay.length} {countriesToDisplay.length === 1 ? 'country' : 'countries'} in {selectedContinent} that are {selectedSize}</h3>
+        <h3 className='tab-header' style={{backgroundColor: 'white', color: 'black', marginLeft: '200px', marginRight: '200px'}}>There {countriesToDisplay.length === 1 ? 'is' : 'are'} {countriesToDisplay.length} {countriesToDisplay.length === 1 ? 'country' : 'countries'} in {selectedContinent} that are {selectedSize}</h3>
 
-      <ul className="Items">
-        {countriesToDisplay.map((country) => (
-          <PopulationRow 
-            key={country.name.common} 
-            name={country.name.common} 
-            size={(country.population).toLocaleString()} 
-            continent={country.continents[0]} 
-            flag={country.flag}/>
-        ))}
-      </ul>
+        <ul className="Items">
+          {countriesToDisplay.map((country) => (
+            <PopulationRow 
+              key={country.name.common} 
+              name={country.name.common} 
+              size={(country.population).toLocaleString()} 
+              continent={country.continents[0]} 
+              flag={country.flag}/>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

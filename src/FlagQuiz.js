@@ -14,10 +14,10 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
   let randomWrongThree = countryData[Math.floor(Math.random()*countryData.length)];
 
 
-  const [flagQuizCountry, setFlagQuizCountry] = useState(randomCountry)
-  const [incorrectFlagOne, setIncorrectFlagOne] = useState(randomWrongOne)
-  const [incorrectFlagTwo, setIncorrectFlagTwo] = useState(randomWrongTwo)
-  const [incorrectFlagThree, setIncorrectFlagThree] = useState(randomWrongThree)
+  const [flagQuizCountry, setFlagQuizCountry] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [incorrectFlagOne, setIncorrectFlagOne] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [incorrectFlagTwo, setIncorrectFlagTwo] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [incorrectFlagThree, setIncorrectFlagThree] = useState(countryData[Math.floor(Math.random()*countryData.length)])
   const [flagResponseGiven, setFlagResponseGiven] = useState(false)
   const [currentFlagQuestion, setCurrentFlagQuestion] = useState(0)
   const [flagQuizScore, setFlagQuizScore] = useState (0)
@@ -26,8 +26,8 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     let flagButtons = document.getElementsByClassName("flag-button");
     let i;
     for (i = 0; i < flagButtons.length; i++) {
-      flagButtons[i].style.backgroundColor = "white";
-      flagButtons[i].style.color = "red";
+      flagButtons[i].style.backgroundColor = "lightgray";
+      flagButtons[i].style.color = "black";
     }
   }
 
@@ -35,12 +35,15 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     if (flagResponseGiven === false) {
       if (event.target.value === flagQuizCountry.name.common) {
         event.target.style.backgroundColor = 'green'
+        event.target.style.color = 'white'
         setFlagQuizScore(flagQuizScore + 1)
       } else {
         event.target.style.backgroundColor = 'red'
         event.target.style.color = 'white'
         document.getElementById('correct-answer').style.backgroundColor = 'green'
+        document.getElementById('correct-answer').style.color = 'white'
       }
+      setFlagResponseGiven(true)
     }
   }
 

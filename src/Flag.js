@@ -8,12 +8,12 @@ function Flag ({country}) {
     <div onClick={() => setRevealFlag(!revealFlag)} className='flag_card'>
       {revealFlag 
         ?  
-        <div> 
+        <div style ={{display: 'flex', justifyContent: 'center', backgroundColor: 'white', height: '130px', width: '200px', borderRadius: '5px', color: 'darkblue'}}> 
           <h2>{country.name.common} </h2> 
         </div>  
         : 
-        <div> 
-          <img className='capital_card_flag' src={country.flags.png} alt="Flag"/>
+        <div style={{display: 'flex', justifyContent: 'center'}}> 
+          <img style={{border: '2px solid', borderRadius: '3px'}}className='capital_card_flag' src={country.flags.png} alt="Flag"/>
       </div> }
     </div>  
   )

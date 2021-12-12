@@ -22,7 +22,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject}) {
   return (
     <>
       <div className='quiz-page'>
-        <h1>Quizzes</h1>
+        <h1 className='tab-header'>Quizzes</h1>
         <Link to="/quizzes" className='quiz-menu'>Quiz Home</Link>
         <Link to="/quizzes/population-quiz" className='quiz-menu'>Population Quiz</Link>
         <Link to="/quizzes/flag-quiz" className='quiz-menu'>Flag Quiz</Link>
