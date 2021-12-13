@@ -85,7 +85,7 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
 
   return (
     <div>
-      {orderedCountriesArray === randomCountryArray
+      {currentPopulationQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextPopulationQuestion}

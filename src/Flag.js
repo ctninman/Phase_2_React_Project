@@ -5,7 +5,17 @@ function Flag ({country}) {
   const [ revealFlag, setRevealFlag ] = useState(false)
 
   return (
-    <div onClick={() => setRevealFlag(!revealFlag)} className='flag_card'>
+    <div 
+      onClick={() => setRevealFlag(!revealFlag)} 
+      className='flag_card' 
+      // style={{display: 'flex',
+      // flexDirection: 'row', 
+      // flexWrap: 'wrap', 
+      // justifyContent: 'center',
+      // height: '140px', 
+      // width: '210px',
+      // alignContent: 'center'}}
+      >
       {revealFlag 
         ?  
         <div style ={{display: 'flex', justifyContent: 'center', backgroundColor: 'white', height: '130px', width: '200px', borderRadius: '5px', color: 'darkblue'}}> 

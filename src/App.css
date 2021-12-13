@@ -7,10 +7,6 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.NavBar {
-  background-color: teal;
-}
-
 #flag-quiz-container {
   background-color:#eeeeee;
   display:inline; 
@@ -45,25 +41,29 @@ button {
   color: black;
   padding-right: 20px;
   padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: larger;
-  margin: 7px;
-  background-color: white;
+  margin: 15px;
+  background-color: lightgray;
+  color: black;
   border-radius: 5px;
+  border: 3px solid;
+  box-shadow: 5px 5px 5px black;
 }
 
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .pop-icon {
-  background-color: royalblue;
+  background-color: white;
   border-radius: 5px;
-  border: saddlebrown;
+  border: 3px solid;
   padding-left: 10px;
   padding-right: 10px;
-  width: 175px;
-  display: inline-block;
-  align-content: center;
+  width: 500px;
   margin: 10px;
 }
 
@@ -84,13 +84,14 @@ ul {
 
 .flag_card {
   border-radius: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 180px;
-  display: inline-block;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  justify-content: center;
+  height: 140px; 
+  width: 210px;
   align-content: center;
-  margin: 10px;
-  /* background-color: black; */
+  
 }
 
 .capital_card {
@@ -98,10 +99,15 @@ ul {
   text-align: center;
   width: 150px;
   height: 150px;
-  display: inline-block;
   margin: 10px;
   border-radius: 5px;
   padding-left: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-content: center;
 }
 
 .capital_card_flag {
@@ -116,7 +122,7 @@ ul {
   padding: 12px;
   margin: 10px;
   color: white;
-  background-color: #CE8C4E;
+  background-color: #609240;
   border-radius: 5px;
 }
 

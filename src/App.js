@@ -42,10 +42,10 @@ function App() {
   }
 
   function alphabetize ( a, b ) {
-    if ( a.name.common < b.name.common ){
+    if ( a.translations.ita.common < b.translations.ita.common ){
       return -1;
     }
-    if ( a.name.common > b.name.common ){
+    if ( a.translations.ita.common > b.translations.ita.common ){
       return 1;
     }
     return 0;

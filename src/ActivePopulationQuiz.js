@@ -38,7 +38,7 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
       <h1 className='tab-header' style={{backgroundColor: 'black', color: 'white', marginLeft: '100px', marginRight: '100px'}}>Which of these countries has the highest population?</h1>
     </div>
     <div>
-      <ul id='population-quiz-buttons'>
+      <ul id='population-quiz-buttons' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
         <li>
           <button 
             name="populationAnswer1" 

@@ -63,7 +63,8 @@ function Population ({countries}) {
 
         <h3 className='tab-header' style={{backgroundColor: 'white', color: 'black', marginLeft: '200px', marginRight: '200px'}}>There {countriesToDisplay.length === 1 ? 'is' : 'are'} {countriesToDisplay.length} {countriesToDisplay.length === 1 ? 'country' : 'countries'} in {selectedContinent} that are {selectedSize}</h3>
 
-        <ul className="Items">
+        <ol className="Items" style={{display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
+          <li style={{display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
           {countriesToDisplay.map((country) => (
             <PopulationRow 
               key={country.name.common} 
@@ -72,7 +73,8 @@ function Population ({countries}) {
               continent={country.continents[0]} 
               flag={country.flag}/>
           ))}
-        </ul>
+           </li>
+        </ol>
       </div>
     </div>
   )

@@ -52,10 +52,10 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     let newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];
-    setFlagQuizCountry(newRandomCorrectCountry)
-    setIncorrectFlagOne(newRandomIncorrectOne)
-    setIncorrectFlagTwo(newRandomIncorrectTwo)
-    setIncorrectFlagThree(newRandomIncorrectThree)
+    setFlagQuizCountry(countryData[Math.floor(Math.random()*countryData.length)])
+    setIncorrectFlagOne(countryData[Math.floor(Math.random()*countryData.length)])
+    setIncorrectFlagTwo(countryData[Math.floor(Math.random()*countryData.length)])
+    setIncorrectFlagThree(countryData[Math.floor(Math.random()*countryData.length)])
 
     let nextQuestion = currentFlagQuestion + 1
     setCurrentFlagQuestion(nextQuestion)
@@ -88,7 +88,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
 
   return (
     <div>
-      {flagQuizCountry === randomCountry
+      {currentFlagQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextFlagQuestion}

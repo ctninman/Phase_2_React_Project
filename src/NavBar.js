@@ -6,7 +6,7 @@ const linkStyles = {
   width: "70px",
   padding: "12px",
   margin: "0 6px 6px",
-  background: "#CE8C4E",
+  background: "#609240",
   textDecoration: "none",
   color: "white",
   borderRadius: '5px'
@@ -76,12 +76,13 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {
   }
 
   return (
-    <div>
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+      <div>
       <NavLink
         to='/'
         exact
         style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
+        activeStyle={{background: "#93C572"}}
       >
         Home
       </NavLink>
@@ -89,7 +90,7 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {
         to='/countries'
         exact
         style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
+        activeStyle={{background: "#93C572"}}
       >
         Countries
       </NavLink>
@@ -97,7 +98,7 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {
         to='/capitals'
         exact
         style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
+        activeStyle={{background: "#93C572"}}
       >
         Capitals
       </NavLink>
@@ -105,7 +106,7 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {
         to='/continents'
         exact
         style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
+        activeStyle={{background: "#93C572"}}
       >
         Continents
       </NavLink>
@@ -113,7 +114,7 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {
         to='/flags'
         exact
         style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
+        activeStyle={{background: "#93C572"}}
       >
         Flags
       </NavLink>
@@ -121,7 +122,7 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {
         to='/population'
         exact
         style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
+        activeStyle={{background: "#93C572"}}
       >
         Population
       </NavLink>
@@ -129,10 +130,11 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject}) {
         to='/quizzes'
         exact
         style={linkStyles}
-        activeStyle={{background: 'darkblue'}}
+        activeStyle={{background: "#93C572"}}
       >
         Quizzes
       </NavLink>
+      </div>
       <div>
           <input id='username_input' type='text' placeholder='Enter Name'></input>
           <button type='button' onClick={enterUserName} >Enter</button>

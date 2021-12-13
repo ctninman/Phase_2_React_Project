@@ -18,8 +18,8 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
     let continentButtons = document.getElementsByClassName("continent-button");
     let i;
     for (i = 0; i < continentButtons.length; i++) {
-      continentButtons[i].style.backgroundColor = "white";
-      continentButtons[i].style.color = "red";
+      continentButtons[i].style.backgroundColor = "lightgray";
+      continentButtons[i].style.color = "black";
     }
   }
 
@@ -72,7 +72,7 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
   
   return (
     <div>
-      {continentQuizCountry === randomCountry 
+      {currentContinentQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextQuestion}

@@ -23,7 +23,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject}) {
     <>
       <div className='quiz-page'>
         <h1 className='tab-header'>Quizzes</h1>
-        <Link to="/quizzes" className='quiz-menu'>Quiz Home</Link>
+        <Link to="/quizzes" className='quiz-menu' activeStyle={{background: "#93C572"}}>Quiz Home</Link>
         <Link to="/quizzes/population-quiz" className='quiz-menu'>Population Quiz</Link>
         <Link to="/quizzes/flag-quiz" className='quiz-menu'>Flag Quiz</Link>
         <Link to="/quizzes/continent-quiz" className='quiz-menu'>Continent Quiz</Link>

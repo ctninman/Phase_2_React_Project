@@ -40,6 +40,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
       } else {
         event.target.style.backgroundColor = 'red'
         event.target.style.color = 'white'
+        event.target.style.borderColor = "black"
         document.getElementById('correct-answer').style.backgroundColor = 'green'
       }
       setCapitalResponseGiven(true)
@@ -88,7 +89,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
 
   return (
     <div>
-      {capitalQuizCountry === randomCountry
+      {currentCapitalQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextCapitalQuestion}

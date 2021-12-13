@@ -92,7 +92,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
         </ul>
       </div>
     <div>
-      <button onClick={flagOnClick}>Next</button>
+      <button onClick={flagOnClick} style={{backgroundColor: '#93C572', color: 'white', borderColor: 'black'}}>Next</button>
     </div>
   </div>
 )
