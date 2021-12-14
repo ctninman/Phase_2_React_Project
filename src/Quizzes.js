@@ -1,24 +1,21 @@
 import { Route, Switch, Link } from 'react-router-dom'
 import { useState } from 'react'
 
-
 import QuizHome from './QuizHome'
 import CapitalQuiz from "./CapitalQuiz"
 import ContinentQuiz from "./ContinentQuiz"
 import FlagQuiz from "./FlagQuiz"
 import PopulationQuiz from "./PopulationQuiz"
 
-
 function Quizzes ({countryData, orderNumbers, fullUserObject}) {
 
+    // *** STATE VARIABLES *** //
   const [continentHighScore, setContinentHighScore] = useState(fullUserObject.continentsHighScore)
   const [flagHighScore, setFlagHighScore] = useState(fullUserObject.flagsHighScore)
   const [capitalHighScore, setCapitalHighScore] = useState(fullUserObject.capitalsHighScore)
   const [populationHighScore, setPopulationHighScore] = useState(fullUserObject.populationHighScore)
 
-
-
-
+    // *** JSX *** //
   return (
     <>
       <div className='quiz-page'>

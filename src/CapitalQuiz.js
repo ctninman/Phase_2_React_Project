@@ -8,20 +8,14 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
   
   let history = useHistory()
 
-  let randomCountry = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongOne = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongTwo = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongThree = countryData[Math.floor(Math.random()*countryData.length)];
-
-
-  const [capitalQuizCountry, setCapitalQuizCountry] = useState(randomCountry)
-  const [incorrectOne, setIncorrectOne] = useState(randomWrongOne)
-  const [incorrectTwo, setIncorrectTwo] = useState(randomWrongTwo)
-  const [incorrectThree, setIncorrectThree] = useState(randomWrongThree)
+    // *** STATE VARIABLES *** //
+  const [capitalQuizCountry, setCapitalQuizCountry] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [incorrectOne, setIncorrectOne] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [incorrectTwo, setIncorrectTwo] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [incorrectThree, setIncorrectThree] = useState(countryData[Math.floor(Math.random()*countryData.length)])
   const [capitalResponseGiven, setCapitalResponseGiven] = useState(false)
   const [currentCapitalQuestion, setCurrentCapitalQuestion] = useState(0)
   const [capitalQuizScore, setCapitalQuizScore] = useState (0)
-
 
   function resetButtonColors () {
     let capitalButtons = document.getElementsByClassName("capital-button");
@@ -36,11 +30,11 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     if (capitalResponseGiven === false) {
       if (event.target.value === capitalQuizCountry.name.common) {
         event.target.style.backgroundColor = 'green'
+        event.target.style.color = 'white'
+        event.target.style.borderColor = 'black'
         setCapitalQuizScore(capitalQuizScore + 1)
       } else {
         event.target.style.backgroundColor = 'red'
-        event.target.style.color = 'white'
-        event.target.style.borderColor = "black"
         document.getElementById('correct-answer').style.backgroundColor = 'green'
       }
       setCapitalResponseGiven(true)
@@ -48,16 +42,10 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
   }
 
   function setNextCapitalQuestion () {
-    let newRandomCorrectCountry = countryData[Math.floor(Math.random()*countryData.length)];
-    let newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)];
-    let newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)];
-    let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];
-    setCapitalQuizCountry(newRandomCorrectCountry)
-    setIncorrectOne(newRandomIncorrectOne)
-    setIncorrectTwo(newRandomIncorrectTwo)
-    setIncorrectThree(newRandomIncorrectThree)
-
-
+    setCapitalQuizCountry(countryData[Math.floor(Math.random()*countryData.length)])
+    setIncorrectOne(countryData[Math.floor(Math.random()*countryData.length)])
+    setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
+    setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
     let nextCapitalQuestion = currentCapitalQuestion + 1
     setCurrentCapitalQuestion(nextCapitalQuestion)
     setCapitalResponseGiven(false)
@@ -87,17 +75,19 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     })
   }
 
+    // *** JSX *** //
   return (
     <div>
       {currentCapitalQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextCapitalQuestion}
-          message={'Capitals High Score:'}
+          message={'CAPITALS - High Score:'}
           highScore={capitalHighScore}/> 
         : 
         <ActiveCapitalQuiz
           capitalQuizCountry={capitalQuizCountry}
+          captialResponseGiven={capitalResponseGiven}
           incorrectOne={incorrectOne}
           incorrectTwo={incorrectTwo}
           incorrectThree={incorrectThree}

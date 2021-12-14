@@ -6,7 +6,6 @@ function CapitalCard ({country}) {
 
   return (
     <div onClick={() => setRevealCapital(!revealCapital)} className='capital_card'>
-
       {revealCapital 
         ?  
         <div style ={{display: 'flex', justifyContent: 'center', height: '120px', width: '150px', borderRadius: '5px', color: 'darkblue'}}>

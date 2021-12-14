@@ -1,41 +1,40 @@
-function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, incorrectFlagThree, handleFlagAnswer, setNextFlagQuestion, flagQuizScore, currentFlagQuestion}) {
+function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, incorrectFlagThree, handleFlagAnswer, setNextFlagQuestion, flagQuizScore, currentFlagQuestion, flagResponseGiven}) {
   
-  function randomizeItems(items)
-  {
-      let cached = items.slice(0), temp, i = cached.length, rand;
-      while(--i)
-      {
-          rand = Math.floor(i * Math.random());
-          temp = cached[rand];
-          cached[rand] = cached[i];
-          cached[i] = temp;
-      }
-      return cached;
+  function randomizeItems(items) {
+    let cached = items.slice(0), temp, i = cached.length, rand;
+    while(--i) {
+      rand = Math.floor(i * Math.random());
+      temp = cached[rand];
+      cached[rand] = cached[i];
+      cached[i] = temp;
+    }
+    return cached;
   }
-  function randomizeList()
-  {
-  let list = document.getElementById("flag-quiz-buttons");
-      let nodes = list.children, i = 0;
-      nodes = Array.prototype.slice.call(nodes);
-      nodes = randomizeItems(nodes);
-      while(i < nodes.length)
-      {
-          list.appendChild(nodes[i]);
-          ++i;
-      }
-  list.style.display="block";
+  
+  function randomizeList() {
+    let list = document.getElementById("flag-quiz-buttons");
+    let nodes = list.children, i = 0;
+    nodes = Array.prototype.slice.call(nodes);
+    nodes = randomizeItems(nodes);
+    while(i < nodes.length) {
+      list.appendChild(nodes[i]);
+      ++i;
+    }
+    list.style.display="block";
   }
 
   function flagOnClick () {
-    randomizeList();
-    setNextFlagQuestion()
+    if (flagResponseGiven === true) {
+      randomizeList();
+      setNextFlagQuestion()
+    }
   }
 
-
+    // *** JSX *** //
   return (
   <div className='quiz-tv' id='flag-quiz-tv'>
     <div style={{display: 'flex', flexDirection: 'row', justifyContent:'space-between'}}>
-      <h1 className='menu-icon'>FlagQuiz</h1>
+      <h1 className='menu-icon'>Flag Quiz</h1>
       <h1 style={{paddingRight: '25px'}}>Question: {currentFlagQuestion}/25 {'   '} Score:{flagQuizScore}</h1>
     </div>
       <div>
@@ -53,8 +52,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
                 name="flagAnswer1" 
                 id="correct-answer"
                 className={'flag-button'}
-                style={{backgroundColor: 'lightgray'}}
-                style={{color: 'black'}}
+                style={{backgroundColor: 'lightgray', color: 'black'}}
                 value={flagQuizCountry.name.common}
                 onClick={handleFlagAnswer}
               > {flagQuizCountry.name.common} </button>
@@ -63,8 +61,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
               <button 
                 name="flagAnswer2"
                 className={'flag-button'}
-                style={{backgroundColor: 'lightgray'}}
-                style={{color: 'black'}}
+                style={{backgroundColor: 'lightgray', color: 'black'}}
                 value={incorrectFlagOne.name.common}
                 onClick={handleFlagAnswer}
                 > {incorrectFlagOne.name.common} </button>
@@ -73,8 +70,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
               <button 
               name="flagAnswer3"
               className={'flag-button'}
-              style={{backgroundColor: 'lightgray'}}
-              style={{color: 'black'}}
+              style={{backgroundColor: 'lightgray', color: 'black'}}
               value={incorrectFlagTwo.name.common}
               onClick={handleFlagAnswer}
               > {incorrectFlagTwo.name.common} </button>
@@ -83,8 +79,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
               <button 
                 name="flagAnswer4"
                 className={'flag-button'}
-                style={{backgroundColor: 'lightgray'}}
-                style={{color: 'black'}}
+                style={{backgroundColor: 'lightgray', color: 'black'}}
                 value={incorrectFlagThree.name.common}
                 onClick={handleFlagAnswer}
                 > {incorrectFlagThree.name.common} </button>
@@ -92,7 +87,7 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
         </ul>
       </div>
     <div>
-      <button onClick={flagOnClick} style={{backgroundColor: '#93C572', color: 'white', borderColor: 'black'}}>Next</button>
+      <button onClick={flagOnClick} style={{backgroundColor: '#93C572', color: 'black', borderColor: 'black'}}>Next</button>
     </div>
   </div>
 )

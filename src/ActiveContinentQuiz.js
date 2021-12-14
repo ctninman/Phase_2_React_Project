@@ -1,8 +1,17 @@
-function ActiveContinentQuiz ({currentContinentQuestion, continentQuizScore, handleAnswer, continentQuizCountry, setNextQuestion}) {
+function ActiveContinentQuiz ({currentContinentQuestion, continentQuizScore, continentResponseGiven, handleAnswer, continentQuizCountry, setNextQuestion}) {
   
+  function continentOnClick () {
+    if (continentResponseGiven === true) {
+      setNextQuestion()
+    }
+  }
+
   return (
     <div className='quiz-tv' id='continent-quiz-tv'>
-      <h1 className='menu-icon'>ContinentQuiz  Question:{currentContinentQuestion}/25  Score:{continentQuizScore}</h1>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent:'space-between'}}>
+        <h1 className='menu-icon'>Continent Quiz</h1>
+        <h1 style={{paddingRight: '25px'}}>Question: {currentContinentQuestion}/25 {'   '} Score:{continentQuizScore}</h1>
+      </div>
       <div>
         <h1 className='tab-header' style={{backgroundColor: 'black', color: 'white', marginLeft: '150px', marginRight: '150px'}}>In what continent is {continentQuizCountry.name.common} located?</h1>
       </div>
@@ -15,7 +24,7 @@ function ActiveContinentQuiz ({currentContinentQuestion, continentQuizScore, han
         <button className={'continent-button'} onClick={handleAnswer} name="South America">South America</button>
       </div>
       <div>
-        <button onClick={setNextQuestion}>Next</button>
+        <button onClick={continentOnClick} style={{backgroundColor: '#93C572', color: 'black', borderColor: 'black'}}>Next</button>
       </div>
     </div>
   )

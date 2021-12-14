@@ -8,12 +8,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
 
   let history = useHistory()
 
-  let randomCountry = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongOne = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongTwo = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongThree = countryData[Math.floor(Math.random()*countryData.length)];
-
-
+    // *** STATE VARIABLES *** //
   const [flagQuizCountry, setFlagQuizCountry] = useState(countryData[Math.floor(Math.random()*countryData.length)])
   const [incorrectFlagOne, setIncorrectFlagOne] = useState(countryData[Math.floor(Math.random()*countryData.length)])
   const [incorrectFlagTwo, setIncorrectFlagTwo] = useState(countryData[Math.floor(Math.random()*countryData.length)])
@@ -36,27 +31,21 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
       if (event.target.value === flagQuizCountry.name.common) {
         event.target.style.backgroundColor = 'green'
         event.target.style.color = 'white'
+        event.target.style.borderColor = 'black'
         setFlagQuizScore(flagQuizScore + 1)
       } else {
         event.target.style.backgroundColor = 'red'
-        event.target.style.color = 'white'
         document.getElementById('correct-answer').style.backgroundColor = 'green'
-        document.getElementById('correct-answer').style.color = 'white'
       }
       setFlagResponseGiven(true)
     }
   }
 
   function setNextFlagQuestion () {
-    let newRandomCorrectCountry = countryData[Math.floor(Math.random()*countryData.length)];
-    let newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)];
-    let newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)];
-    let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];
     setFlagQuizCountry(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectFlagOne(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectFlagTwo(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectFlagThree(countryData[Math.floor(Math.random()*countryData.length)])
-
     let nextQuestion = currentFlagQuestion + 1
     setCurrentFlagQuestion(nextQuestion)
     setFlagResponseGiven(false)
@@ -86,13 +75,14 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     })
   }
 
+    // *** JSX *** //
   return (
     <div>
       {currentFlagQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextFlagQuestion}
-          message={'Flags High Score'}
+          message={'FLAGS - High Score:'}
           highScore={flagHighScore}/> 
         : 
         <ActiveFlagQuiz
@@ -104,6 +94,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
           setNextFlagQuestion={setNextFlagQuestion}
           flagQuizScore={flagQuizScore}
           currentFlagQuestion={currentFlagQuestion}
+          flagResponseGiven={flagResponseGiven}
           />}
     </div>
   )

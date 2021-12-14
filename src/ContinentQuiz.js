@@ -7,9 +7,8 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
   
   let history = useHistory ()
 
-  let randomCountry = countryData[Math.floor(Math.random()*countryData.length)];
-
-  const [continentQuizCountry, setContinentQuizCountry] = useState(randomCountry)
+    // *** STATE VARIABLES *** //
+  const [continentQuizCountry, setContinentQuizCountry] = useState(countryData[Math.floor(Math.random()*countryData.length)])
   const [continentResponseGiven, setContinentResponseGiven] = useState(false)
   const [currentContinentQuestion, setCurrentContinentQuestion] = useState(0)
   const [continentQuizScore, setContinentQuizScore] = useState (0)
@@ -27,16 +26,15 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
     if (continentResponseGiven === false) {
       if (event.target.name === continentQuizCountry.continents[0]) {
         event.target.style.backgroundColor = 'green'
+        event.target.style.color = 'white'
+        event.target.style.borderColor = 'black'
         setContinentQuizScore(continentQuizScore + 1)
       } else {
         event.target.style.backgroundColor = 'red'
-        event.target.style.color = 'white'
       }
       setContinentResponseGiven(true)
     }
   }
-
-
 
   function setNextQuestion () {
     let newRandomCountry = countryData[Math.floor(Math.random()*countryData.length)];
@@ -70,17 +68,19 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
     })
   }
   
+    // *** JSX *** //
   return (
     <div>
       {currentContinentQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextQuestion}
-          message={'Continents High Score:'}
+          message={'CONTINENTS - High Score:'}
           highScore={continentHighScore}/> 
         : 
         <ActiveContinentQuiz 
           setNextQuestion={setNextQuestion} 
+          continentResponseGiven={continentResponseGiven}
           continentQuizCountry={continentQuizCountry} 
           handleAnswer={handleAnswer}
           currentContinentQuestion={currentContinentQuestion}

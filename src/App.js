@@ -13,12 +13,18 @@ import './App.css'
 
 function App() {
 
+    // *** STATE VARIABLE *** //
   const [countries, setCountries] = useState([])
   const [countryList, setCountryList] = useState(countries)
   const [userName, setUserName] = useState('')
-  const [fullUserObject, setFullUserObject] = useState({})
-
-
+  const [fullUserObject, setFullUserObject] = useState({
+    "userName": "Player",
+    "flagsHighScore": 0,
+    "populationHighScore": 0,
+    "continentsHighScore": 0,
+    "capitalsHighScore": 0
+  })
+  const [userScore, setUserScore] = useState(0)
 
   useEffect (() => {
   fetch('https://restcountries.com/v3.1/all')
@@ -32,7 +38,7 @@ function App() {
 
   function filterByContinent (event) {
     const filteredContinent = countries.filter((country) => {
-      if (event.target.value === 'all') {
+      if (event.target.value === 'the world') {
         return true
       } else if (event.target.value === country.continents[0]) {
         return true
@@ -42,10 +48,10 @@ function App() {
   }
 
   function alphabetize ( a, b ) {
-    if ( a.translations.ita.common < b.translations.ita.common ){
+    if ( a.name.common < b.name.common ){
       return -1;
     }
-    if ( a.translations.ita.common > b.translations.ita.common ){
+    if ( a.name.common > b.name.common ){
       return 1;
     }
     return 0;
@@ -61,7 +67,7 @@ function App() {
     return 0;
   }
 
-
+    // *** JSX *** //
   return (
     <div className='App'>
       <NavBar 
@@ -69,25 +75,44 @@ function App() {
         userName={userName}
         fullUserObject={fullUserObject} 
         setUserName={setUserName}
+        userScore={userScore}
+        setUserScore={setUserScore}
         setFullUserObject={setFullUserObject}/>
         <Switch>
         <Route exact path='/countries'>
-            <CountriesList alphabetizeCountries={alphabetize} countries={countries}/>
+            <CountriesList 
+              alphabetizeCountries={alphabetize} 
+              countries={countries}/>
           </Route>
           <Route path='/quizzes'>
-            <Quizzes countryData={[...countries]} orderNumbers={orderNumbers} fullUserObject={fullUserObject}/>
+            <Quizzes 
+              countryData={[...countries]} 
+              orderNumbers={orderNumbers} 
+              fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/capitals'>
-            <Capitals countries={countries}/>
+            <Capitals 
+              countries={countries}/>
           </Route>
           <Route exact path='/continents'>
-            <Continents alphabetize={alphabetize} filterContinents={filterByContinent} countryList={countryList}/>
+            <Continents 
+              alphabetize={alphabetize} 
+              filterContinents={filterByContinent} 
+              countryList={countryList}
+              countries={countries}
+              allCountries={countries}
+              setCountryList={setCountryList}/>
           </Route>
           <Route exact path='/population'>
-            <Population countries={[...countries.sort(orderNumbers)]}/>
+            <Population 
+              countries={[...countries.sort(orderNumbers)]}/>
           </Route>
           <Route exact path='/flags'>
-            <Flags filterContinents={filterByContinent} allCountries={countries} countryList={countryList} onFlagPageLoad={setCountryList}/>
+            <Flags 
+              filterContinents={filterByContinent} 
+              allCountries={countries} 
+              countryList={countryList} 
+              onFlagPageLoad={setCountryList}/>
           </Route>
           <Route exact path='/'>
             <Home />
@@ -96,6 +121,5 @@ function App() {
     </div>
   )
 }
-
 
 export default App;

@@ -14,6 +14,7 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
   let randomWrongThree = countryData[Math.floor(Math.random()*countryData.length)];
   let randomCountryArray = [randomCountry, randomWrongOne, randomWrongTwo, randomWrongThree]
 
+    // *** STATE VARIABLES *** //
   const [orderedCountriesArray, setOrderedContriesArray] = useState(randomCountryArray) 
   const [populationResponseGiven, setPopulationResponseGiven] = useState(false)
   const [currentPopulationQuestion, setCurrentPopulationQuestion] = useState(0)
@@ -33,10 +34,11 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     if (populationResponseGiven === false) {
       if (event.target.value === orderedCountriesArray[0].name.common) {
         event.target.style.backgroundColor = 'green'
+        event.target.style.color = 'white'
+        event.target.style.borderColor = 'black'
         setPopulationQuizScore(populationQuizScore + 1)
       } else {
         event.target.style.backgroundColor = 'red'
-        event.target.style.color = 'white'
         document.getElementById('correct-answer').style.backgroundColor = 'green'
      }
       setPopulationResponseGiven(true)
@@ -45,15 +47,12 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
 
   
   function setNextPopulationQuestion () {
-  
     let newRandomCorrectCountry = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomCountriesArray = [newRandomCorrectCountry, newRandomIncorrectOne, newRandomIncorrectTwo, newRandomIncorrectThree]
-
     setOrderedContriesArray(newRandomCountriesArray.sort(orderNumbers))
-
     let nextQuestion = currentPopulationQuestion + 1
     setCurrentPopulationQuestion(nextQuestion)
     setPopulationResponseGiven(false)
@@ -83,17 +82,19 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     })
   }
 
+    // *** JSX *** //
   return (
     <div>
       {currentPopulationQuestion === 0
         ? 
         <StartScreen 
           startQuiz={setNextPopulationQuestion}
-          message={'Population High Score:'}
+          message={'POPULATION - High Score:'}
           highScore={populationHighScore}/> 
         : 
         <ActivePopulationQuiz
           orderedCountriesArray={orderedCountriesArray}
+          populationResponseGiven={populationResponseGiven}
           handlePopulationAnswer={handlePopulationAnswer}
           setNextPopulationQuestion={setNextPopulationQuestion}
           populationQuizScore={populationQuizScore}

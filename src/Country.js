@@ -1,14 +1,13 @@
 function Country ({country}) {
 
   const nativeNameObject = Object.values(country.name.nativeName)
-
   const officialLanguages = Object.values(country.languages)
-
   const officialCurrenciesObject = Object.values(country.currencies)
 
+    // *** JSX *** //
   return (
     <div className={'country_card'}>
-      <h2 style={{textAlign: 'center'}}>{country.translations.ita.common}</h2>
+      <h2 style={{textAlign: 'center'}}>{country.name.common}</h2>
       <img className={'flag_card'} style={{border: '2px solid'}}src={country.flags.png} alt="Flag" />
       <h5 style={{textAlign: 'center', marginTop: '0px'}}>{nativeNameObject[0].common}</h5>
       <h3>Capital: {country.capital}</h3>

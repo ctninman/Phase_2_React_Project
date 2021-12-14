@@ -1,4 +1,5 @@
 function StartScreen ({startQuiz, message, highScore}) {
+  
   return(
     <div className={'quiz-tv'}>
       <h1>{message} {highScore}</h1>
