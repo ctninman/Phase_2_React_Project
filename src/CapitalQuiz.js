@@ -9,10 +9,10 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
   let history = useHistory()
 
     // *** STATE VARIABLES *** //
-  const [capitalQuizCountry, setCapitalQuizCountry] = useState(countryData[Math.floor(Math.random()*countryData.length)])
-  const [incorrectOne, setIncorrectOne] = useState(countryData[Math.floor(Math.random()*countryData.length)])
-  const [incorrectTwo, setIncorrectTwo] = useState(countryData[Math.floor(Math.random()*countryData.length)])
-  const [incorrectThree, setIncorrectThree] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [capitalQuizCountry, setCapitalQuizCountry] = useState({})
+  const [incorrectOne, setIncorrectOne] = useState({})
+  const [incorrectTwo, setIncorrectTwo] = useState({})
+  const [incorrectThree, setIncorrectThree] = useState({})
   const [capitalResponseGiven, setCapitalResponseGiven] = useState(false)
   const [currentCapitalQuestion, setCurrentCapitalQuestion] = useState(0)
   const [capitalQuizScore, setCapitalQuizScore] = useState (0)
@@ -23,6 +23,27 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     for (i = 0; i < capitalButtons.length; i++) {
       capitalButtons[i].style.backgroundColor = "lightgray";
       capitalButtons[i].style.color = "black";
+    }
+  }
+
+   function checkForDuplicates () {
+    while (capitalQuizCountry === incorrectOne) {
+      setIncorrectOne(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (capitalQuizCountry === incorrectTwo) {
+      setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (capitalQuizCountry === incorrectThree) {
+      setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (incorrectOne === incorrectTwo) {
+      setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (incorrectOne === incorrectThree) {
+      setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (incorrectTwo === incorrectThree) {
+      setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
     }
   }
 
@@ -46,6 +67,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     setIncorrectOne(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
+    checkForDuplicates()
     let nextCapitalQuestion = currentCapitalQuestion + 1
     setCurrentCapitalQuestion(nextCapitalQuestion)
     setCapitalResponseGiven(false)

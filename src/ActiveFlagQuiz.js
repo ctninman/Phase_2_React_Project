@@ -35,14 +35,24 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
   <div className='quiz-tv' id='flag-quiz-tv'>
     <div style={{display: 'flex', flexDirection: 'row', justifyContent:'space-between'}}>
       <h1 className='menu-icon'>Flag Quiz</h1>
-      <h1 style={{paddingRight: '25px'}}>Question: {currentFlagQuestion}/25 {'   '} Score:{flagQuizScore}</h1>
+      <h1 
+        style={{paddingRight: '25px'}}
+        >Question: {currentFlagQuestion}/25 {'   '} Score:{flagQuizScore}
+      </h1>
     </div>
       <div>
         <div style={{height: '210px'}}>
           <img style={{height: '210px'}} className='flag-image' src={flagQuizCountry.flags.png} alt='Random Flag'/>
         </div>
         <div>
-          <h1 className='tab-header' style={{backgroundColor: 'black', color: 'white', marginLeft: '200px', marginRight: '200px'}}>Which country's flag is this?</h1>
+          <h1 
+            className='tab-header' 
+            style={{backgroundColor: 'black', 
+              color: 'white', 
+              marginLeft: '200px', 
+              marginRight: '200px'}}
+            >Which country's flag is this?
+          </h1>
         </div>
       </div>
       <div id='flag-quiz-container'>
@@ -87,7 +97,13 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
         </ul>
       </div>
     <div>
-      <button onClick={flagOnClick} style={{backgroundColor: '#93C572', color: 'black', borderColor: 'black'}}>Next</button>
+      <button 
+        onClick={flagOnClick} 
+        style={{backgroundColor: '#93C572', 
+          color: 'black', 
+          borderColor: 'black'}}
+        >Next
+      </button>
     </div>
   </div>
 )

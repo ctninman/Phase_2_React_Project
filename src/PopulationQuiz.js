@@ -7,15 +7,13 @@ import StartScreen from './StartScreen';
 function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPopulationHighScore, fullUserObject}) {
 
   let history = useHistory()
-
-  let randomCountry = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongOne = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongTwo = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomWrongThree = countryData[Math.floor(Math.random()*countryData.length)];
-  let randomCountryArray = [randomCountry, randomWrongOne, randomWrongTwo, randomWrongThree]
+  let newRandomCorrectCountry;
+  let newRandomIncorrectOne;
+  let newRandomIncorrectTwo;
+  let newRandomIncorrectThree;
 
     // *** STATE VARIABLES *** //
-  const [orderedCountriesArray, setOrderedContriesArray] = useState(randomCountryArray) 
+  const [orderedCountriesArray, setOrderedContriesArray] = useState([]) 
   const [populationResponseGiven, setPopulationResponseGiven] = useState(false)
   const [currentPopulationQuestion, setCurrentPopulationQuestion] = useState(0)
   const [populationQuizScore, setPopulationQuizScore] = useState (0)
@@ -27,6 +25,27 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     for (i = 0; i < populationButtons.length; i++) {
       populationButtons[i].style.backgroundColor = "lightgray";
       populationButtons[i].style.color = "black";
+    }
+  }
+
+  function checkForDuplicates () {
+    while (newRandomCorrectCountry === newRandomIncorrectOne) {
+      newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)]
+    }
+    while (newRandomCorrectCountry === newRandomIncorrectTwo) {
+      newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)]
+    }
+    while (newRandomCorrectCountry === newRandomIncorrectThree) {
+      newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)]
+    }
+    while (newRandomIncorrectOne === newRandomIncorrectTwo) {
+      newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)]
+    }
+    while (newRandomIncorrectOne === newRandomIncorrectThree) {
+      newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)]
+    }
+    while (newRandomIncorrectTwo === newRandomIncorrectThree) {
+      newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)]
     }
   }
 
@@ -50,7 +69,8 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     let newRandomCorrectCountry = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)];
-    let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];
+    let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];  
+    checkForDuplicates() 
     let newRandomCountriesArray = [newRandomCorrectCountry, newRandomIncorrectOne, newRandomIncorrectTwo, newRandomIncorrectThree]
     setOrderedContriesArray(newRandomCountriesArray.sort(orderNumbers))
     let nextQuestion = currentPopulationQuestion + 1

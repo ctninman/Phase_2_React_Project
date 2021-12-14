@@ -133,9 +133,29 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, user
       </NavLink>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', alignItems: 'flex-start'}}>
-        <h3 style={{paddingRight: '5px', verticalAlign: 'top', marginTop: '5px', color: 'black'}}>{userName === '' ? null : `${userName}: ${userScore} ⭐`}</h3>
-        <input style={{marginTop: '8px'}} id='username_input' type='text' placeholder='Enter name to play!'></input>
-        <button style={{marginTop: '2px'}} id='login-button' onClick={enterUserName} >Enter</button>
+        <h3 
+          style={{paddingRight: '5px', 
+          verticalAlign: 'top', 
+          marginTop: '5px', 
+          color: 'black'}}>
+          {userName === '' 
+        ? 
+          null 
+        : 
+          `${userName}: ${userScore} ⭐`}
+        </h3>
+        <input 
+          style={{marginTop: '8px'}} 
+          id='username_input' 
+          type='text' 
+          placeholder='Enter name to play!'>
+        </input>
+        <button 
+          style={{marginTop: '2px'}} 
+          id='login-button' 
+          onClick={enterUserName} 
+          >Enter
+        </button>
       </div>
     </div>
   )

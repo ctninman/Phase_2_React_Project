@@ -2,15 +2,15 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
   
   function randomizeItems(items) {
     let cached = items.slice(0), temp, i = cached.length, rand;
-    while(--i)
-    {
-        rand = Math.floor(i * Math.random());
-        temp = cached[rand];
-        cached[rand] = cached[i];
-        cached[i] = temp;
+    while(--i) {
+      rand = Math.floor(i * Math.random());
+      temp = cached[rand];
+      cached[rand] = cached[i];
+      cached[i] = temp;
     }
     return cached;
   }
+  
   function randomizeList() {
     let list = document.getElementById("capital-quiz-buttons");
     let nodes = list.children, i = 0;
@@ -38,7 +38,14 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
         <h1 style={{paddingRight: '25px'}}>Question: {currentCapitalQuestion}/25 {'   '} Score:{capitalQuizScore}</h1>
       </div>
       <div>
-        <h1 className='tab-header' style={{backgroundColor: 'black', color: 'white', marginLeft: '50px', marginRight: '50px'}}>{capitalQuizCountry.capital[0]} is the capital of which country?</h1>
+        <h1 
+          className='tab-header' 
+          style={{backgroundColor: 'black', 
+            color: 'white', 
+            marginLeft: '50px', 
+            marginRight: '50px'}}
+          >{capitalQuizCountry.capital[0]} is the capital of which country?
+        </h1>
       </div>
       <div>
         <ul style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id='capital-quiz-buttons'>

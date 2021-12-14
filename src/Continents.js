@@ -38,11 +38,19 @@ function Continents ({alphabetize, filterContinents, countries, countryList, set
           <button onClick={filteredByContinent} value={'Antarctica'}>Antarctica</button>
 
         </div>
-        <h2 className='tab-header' style={{backgroundColor: '#609240', color: 'white', marginLeft: '200px', marginRight: '200px', marginTop: '0px'}}>There are {countryList.length} countries in {selectedContinents}.</h2>
+        <h2 
+          className='tab-header' 
+          style=
+            {{backgroundColor: '#609240', 
+            color: 'white', marginLeft: '200px', 
+            marginRight: '200px', 
+            marginTop: '0px'}}
+          >There are {countryList.length} countries in {selectedContinents}.
+        </h2>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', flexWrap:'wrap', justifyContent: 'space-between'}}>
         {countryList.sort(alphabetize).map((country) => (
-        <Continent 
+          <Continent 
           key={country.name.common}
           country={country}/>
         ))}

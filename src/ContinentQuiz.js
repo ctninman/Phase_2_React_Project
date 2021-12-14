@@ -37,8 +37,7 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
   }
 
   function setNextQuestion () {
-    let newRandomCountry = countryData[Math.floor(Math.random()*countryData.length)];
-    setContinentQuizCountry(newRandomCountry)
+    setContinentQuizCountry(countryData[Math.floor(Math.random()*countryData.length)])
     let nextQuestion = currentContinentQuestion + 1
     setCurrentContinentQuestion(nextQuestion)
     setContinentResponseGiven(false)

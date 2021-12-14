@@ -78,7 +78,13 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
       </ul>
     </div>
     <div>
-      <button onClick={populationOnClick} style={{backgroundColor: '#93C572', color: 'black', borderColor: 'black'}}>Next</button>
+      <button 
+        onClick={populationOnClick} 
+        style={{backgroundColor: '#93C572', 
+          color: 'black', 
+          borderColor: 'black'}}
+        >Next
+      </button>
     </div>
   </div>
 )

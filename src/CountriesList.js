@@ -20,9 +20,14 @@ function CountriesList ({countries, alphabetizeCountries}) {
       <div style={{marginTop: '0px'}} >
         <Filter onSearchText={searchText} onSetSearchText={setSearchText}/>
       </div>
-      <div style={{display:'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center'}}> 
-        {filteredCountryList.sort(alphabetizeCountries).map((country) => (
-          <Country 
+      <div 
+        style={{display:'flex', 
+          flexDirection: 'row', 
+          flexWrap: 'wrap', 
+          justifyContent: 'center'}}
+          > 
+          {filteredCountryList.sort(alphabetizeCountries).map((country) => (
+            <Country 
             key={country.name.common}
             country={country}
           />

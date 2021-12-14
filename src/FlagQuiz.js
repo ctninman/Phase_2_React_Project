@@ -9,10 +9,10 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
   let history = useHistory()
 
     // *** STATE VARIABLES *** //
-  const [flagQuizCountry, setFlagQuizCountry] = useState(countryData[Math.floor(Math.random()*countryData.length)])
-  const [incorrectFlagOne, setIncorrectFlagOne] = useState(countryData[Math.floor(Math.random()*countryData.length)])
-  const [incorrectFlagTwo, setIncorrectFlagTwo] = useState(countryData[Math.floor(Math.random()*countryData.length)])
-  const [incorrectFlagThree, setIncorrectFlagThree] = useState(countryData[Math.floor(Math.random()*countryData.length)])
+  const [flagQuizCountry, setFlagQuizCountry] = useState({})
+  const [incorrectFlagOne, setIncorrectFlagOne] = useState({})
+  const [incorrectFlagTwo, setIncorrectFlagTwo] = useState({})
+  const [incorrectFlagThree, setIncorrectFlagThree] = useState({})
   const [flagResponseGiven, setFlagResponseGiven] = useState(false)
   const [currentFlagQuestion, setCurrentFlagQuestion] = useState(0)
   const [flagQuizScore, setFlagQuizScore] = useState (0)
@@ -23,6 +23,27 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     for (i = 0; i < flagButtons.length; i++) {
       flagButtons[i].style.backgroundColor = "lightgray";
       flagButtons[i].style.color = "black";
+    }
+  }
+
+   function checkForDuplicates () {
+    while (flagQuizCountry === incorrectFlagOne) {
+      setIncorrectFlagOne(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (flagQuizCountry === incorrectFlagTwo) {
+      setIncorrectFlagTwo(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (flagQuizCountry === incorrectFlagThree) {
+      setIncorrectFlagThree(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (incorrectFlagOne === incorrectFlagTwo) {
+      setIncorrectFlagTwo(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (incorrectFlagOne === incorrectFlagThree) {
+      setIncorrectFlagThree(countryData[Math.floor(Math.random()*countryData.length)])
+    }
+    while (incorrectFlagTwo === incorrectFlagThree) {
+      setIncorrectFlagThree(countryData[Math.floor(Math.random()*countryData.length)])
     }
   }
 
@@ -46,6 +67,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     setIncorrectFlagOne(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectFlagTwo(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectFlagThree(countryData[Math.floor(Math.random()*countryData.length)])
+    checkForDuplicates()
     let nextQuestion = currentFlagQuestion + 1
     setCurrentFlagQuestion(nextQuestion)
     setFlagResponseGiven(false)
