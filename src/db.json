@@ -18,10 +18,10 @@
     },
     {
       "userName": "jim",
-      "flagsHighScore": 4,
+      "flagsHighScore": 12,
       "populationHighScore": 5,
-      "continentsHighScore": 7,
-      "capitalsHighScore": 5,
+      "continentsHighScore": 9,
+      "capitalsHighScore": 11,
       "id": 3
     },
     {
@@ -135,6 +135,38 @@
       "continentsHighScore": 0,
       "capitalsHighScore": 0,
       "id": 17
+    },
+    {
+      "userName": "Brad",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 18
+    },
+    {
+      "userName": "Gary",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 19
+    },
+    {
+      "userName": "Greg",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 20
+    },
+    {
+      "userName": "Dylan",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 21
     }
   ]
 }

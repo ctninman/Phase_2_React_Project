@@ -65,6 +65,7 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({continentsHighScore: continentQuizScore}),
     })
+    // .then(fetchUserData())
   }
   
     // *** JSX *** //

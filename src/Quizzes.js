@@ -7,7 +7,7 @@ import ContinentQuiz from "./ContinentQuiz"
 import FlagQuiz from "./FlagQuiz"
 import PopulationQuiz from "./PopulationQuiz"
 
-function Quizzes ({countryData, orderNumbers, fullUserObject}) {
+function Quizzes ({countryData, orderNumbers, fullUserObject, flagQuizHighScore}) {
 
     // *** STATE VARIABLES *** //
   const [continentHighScore, setContinentHighScore] = useState(fullUserObject.continentsHighScore)
@@ -49,6 +49,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject}) {
               countryData={countryData}
               flagHighScore={flagHighScore}
               setFlagHighScore={setFlagHighScore}
+              flagQuizHighScore={flagQuizHighScore}
               fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/quizzes/continent-quiz'> 

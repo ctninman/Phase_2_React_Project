@@ -25,9 +25,10 @@ function App() {
     "capitalsHighScore": 0
   })
   const [userScore, setUserScore] = useState(0)
+  const [flagQuizHighScore, setFlagQuizHighScore] = useState (0)
 
   useEffect (() => {
-  fetch('https://restcountries.com/v3.1/all')
+    fetch('https://restcountries.com/v3.1/all')
     .then(res => res.json())
     .then(data => {
       const unMemberCountries = data.filter((country) => country.unMember === true || country.cca2 === 'PS' || country.cca2 === 'GW');
@@ -88,7 +89,8 @@ function App() {
             <Quizzes 
               countryData={[...countries]} 
               orderNumbers={orderNumbers} 
-              fullUserObject={fullUserObject}/>
+              fullUserObject={fullUserObject}
+              flagQuizHighScore={flagQuizHighScore}/>
           </Route>
           <Route path='/capitals'>
             <Capitals 
