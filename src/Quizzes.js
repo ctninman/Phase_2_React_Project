@@ -7,7 +7,7 @@ import ContinentQuiz from "./ContinentQuiz"
 import FlagQuiz from "./FlagQuiz"
 import PopulationQuiz from "./PopulationQuiz"
 
-function Quizzes ({countryData, orderNumbers, fullUserObject, flagQuizHighScore}) {
+function Quizzes ({countryData, orderNumbers, fullUserObject, flagQuizHighScore, userScore, setUserScore}) {
 
     // *** STATE VARIABLES *** //
   const [continentHighScore, setContinentHighScore] = useState(fullUserObject.continentsHighScore)
@@ -41,6 +41,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject, flagQuizHighScore}
               orderNumbers={orderNumbers}
               populationHighScore={populationHighScore}
               setPopulationHighScore={setPopulationHighScore}
+              setUserScore={setUserScore}
               fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/quizzes/flag-quiz' >
@@ -50,6 +51,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject, flagQuizHighScore}
               flagHighScore={flagHighScore}
               setFlagHighScore={setFlagHighScore}
               flagQuizHighScore={flagQuizHighScore}
+              setUserScore={setUserScore}
               fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/quizzes/continent-quiz'> 
@@ -58,6 +60,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject, flagQuizHighScore}
               countryData={countryData}
               continentHighScore={continentHighScore}
               setContinentHighScore={setContinentHighScore}
+              setUserScore={setUserScore}
               fullUserObject={fullUserObject}/>
           </Route>
           <Route path='/quizzes/capital-quiz' >
@@ -66,6 +69,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject, flagQuizHighScore}
               countryData={countryData}
               capitalHighScore={capitalHighScore}
               setCapitalHighScore={setCapitalHighScore}
+              setUserScore={setUserScore}
               fullUserObject={fullUserObject}/>
           </Route>
         </Switch>

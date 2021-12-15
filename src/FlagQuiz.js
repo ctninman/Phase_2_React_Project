@@ -4,7 +4,7 @@ import ActiveFlagQuiz from './ActiveFlagQuiz';
 import StartScreen from './StartScreen';
 
 
-function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject}) {
+function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject, setUserScore}) {
 
   let history = useHistory()
 
@@ -72,7 +72,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     setCurrentFlagQuestion(nextQuestion)
     setFlagResponseGiven(false)
     resetButtonColors()
-    if (currentFlagQuestion >= 25){
+    if (currentFlagQuestion >= 3){
       if (flagQuizScore > flagHighScore) {
         setFlagHighScore(flagQuizScore)
         patchUserData()
@@ -95,6 +95,10 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({flagsHighScore: flagQuizScore}),
     })
+    .then((res) => {
+      return res.json()
+    })
+    .then(user => setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore));
   }
 
     // *** JSX *** //

@@ -4,7 +4,7 @@ import ActiveCapitalQuiz from './ActiveCapitalQuiz'
 import StartScreen from './StartScreen'
 
 
-function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullUserObject}) {
+function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullUserObject, setUserScore}) {
   
   let history = useHistory()
 
@@ -95,6 +95,10 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({capitalsHighScore: capitalQuizScore}),
     })
+    .then((res) => {
+      return res.json()
+    })
+    .then(user => setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore));
   }
 
     // *** JSX *** //

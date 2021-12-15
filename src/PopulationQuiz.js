@@ -4,7 +4,7 @@ import ActivePopulationQuiz from './ActivePopulationQuiz';
 import StartScreen from './StartScreen';
 
 
-function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPopulationHighScore, fullUserObject}) {
+function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPopulationHighScore, fullUserObject, setUserScore}) {
 
   let history = useHistory()
   let newRandomCorrectCountry;
@@ -100,6 +100,10 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({populationHighScore: populationQuizScore}),
     })
+    .then((res) => {
+      return res.json()
+    })
+    .then(user => setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore));
   }
 
     // *** JSX *** //

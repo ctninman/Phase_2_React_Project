@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import StartScreen from './StartScreen';
 import ActiveContinentQuiz from './ActiveContinentQuiz';
 
-function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore, fullUserObject}) {
+function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore, fullUserObject, setUserScore}) {
   
   let history = useHistory ()
 
@@ -65,7 +65,10 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({continentsHighScore: continentQuizScore}),
     })
-    // .then(fetchUserData())
+     .then((res) => {
+          return res.json()
+        })
+        .then(user => setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore));
   }
   
     // *** JSX *** //

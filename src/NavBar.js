@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const linkStyles = {
@@ -14,6 +14,8 @@ const linkStyles = {
 
 function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, userScore, setUserScore}) {
 
+  const [login, setLogin] = useState('')
+  
   let enteredUserName;
 
   useEffect(() => {
@@ -24,11 +26,15 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, user
     setUserScore(fullUserObject.flagsHighScore + fullUserObject.populationHighScore + fullUserObject.continentsHighScore + fullUserObject.capitalsHighScore)
   }, [fullUserObject] )
 
-  function enterUserName () {
-    enteredUserName = document.getElementById("username_input").value
-    document.querySelector("#username_input").value = ""
-    document.querySelector("#username_input").placeholder = "Enter name to play!"
-    setUserName(enteredUserName)
+  function handleLoginType (event) {
+    setLogin(event.target.value)
+  }
+
+  function enterUserName (event) {
+    event.preventDefault()
+    document.getElementById('username-form').reset()
+    console.log(login)
+    setUserName(login)
   }
 
   function postUserData (object) {  
@@ -38,8 +44,10 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, user
         headers: {"Content-Type": "application/json",},
         body: JSON.stringify(object),
       })
-        .then((res) => res.json())
-        .then(fullUserObject => console.log(fullUserObject));
+        .then((res) => {
+          return res.json()
+        })
+        .then(fullUserObject => setFullUserObject(fullUserObject));
   }
 
   function fetchUserData () {
@@ -64,7 +72,6 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, user
             "capitalsHighScore": 0
           }
           postUserData(newUserObject)
-          setFullUserObject(newUserObject)
         }
       })
     }
@@ -144,18 +151,26 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, user
         : 
           `${userName}: ${userScore} ⭐`}
         </h3>
-        <input 
-          style={{marginTop: '8px'}} 
-          id='username_input' 
-          type='text' 
-          placeholder='Enter name to play!'>
-        </input>
-        <button 
-          style={{marginTop: '2px'}} 
-          id='login-button' 
-          onClick={enterUserName} 
-          >Enter
-        </button>
+         <form 
+          onChange={handleLoginType}
+          onSubmit={enterUserName}
+          value={login}
+          id='username-form'>
+          <input 
+            style={{marginTop: '8px'}} 
+            name='username_input'
+            type='text' 
+            placeholder='Enter name to play!'>
+          </input>
+          <button
+            type='submit'
+            value="Enter"
+            style={{marginTop: '2px'}} 
+            id='login-button'
+            text='Enter'>
+              Enter
+           </button>
+        </form>
       </div>
     </div>
   )

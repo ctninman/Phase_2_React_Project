@@ -13,7 +13,7 @@ import './App.css'
 
 function App() {
 
-    // *** STATE VARIABLE *** //
+    // *** STATE VARIABLES *** //
   const [countries, setCountries] = useState([])
   const [countryList, setCountryList] = useState(countries)
   const [userName, setUserName] = useState('')
@@ -89,7 +89,10 @@ function App() {
             <Quizzes 
               countryData={[...countries]} 
               orderNumbers={orderNumbers} 
+              userScore={userScore}
+              setUserScore={setUserScore}
               fullUserObject={fullUserObject}
+              setFullUserObject={setFullUserObject}
               flagQuizHighScore={flagQuizHighScore}/>
           </Route>
           <Route path='/capitals'>
