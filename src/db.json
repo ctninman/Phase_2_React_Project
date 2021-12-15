@@ -103,6 +103,14 @@
       "continentsHighScore": 0,
       "capitalsHighScore": 0,
       "id": 43
+    },
+    {
+      "userName": "Chris",
+      "flagsHighScore": 0,
+      "populationHighScore": 18,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 44
     }
   ]
 }
