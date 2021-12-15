@@ -4,7 +4,7 @@ import ActiveCapitalQuiz from './ActiveCapitalQuiz'
 import StartScreen from './StartScreen'
 
 
-function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullUserObject, setUserScore}) {
+function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullUserObject, setUserScore, checkForDuplicates}) {
   
   let history = useHistory()
 
@@ -26,26 +26,26 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     }
   }
 
-   function checkForDuplicates () {
-    while (capitalQuizCountry === incorrectOne) {
-      setIncorrectOne(countryData[Math.floor(Math.random()*countryData.length)])
-    }
-    while (capitalQuizCountry === incorrectTwo) {
-      setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
-    }
-    while (capitalQuizCountry === incorrectThree) {
-      setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
-    }
-    while (incorrectOne === incorrectTwo) {
-      setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
-    }
-    while (incorrectOne === incorrectThree) {
-      setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
-    }
-    while (incorrectTwo === incorrectThree) {
-      setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
-    }
-  }
+  //  function checkForDuplicates (a, b, c, d, setterB, setterC, setterD, array) {
+  //   while (capitalQuizCountry === incorrectOne) {
+  //     setIncorrectOne(countryData[Math.floor(Math.random()*countryData.length)])
+  //   }
+  //   while (capitalQuizCountry === incorrectTwo) {
+  //     setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
+  //   }
+  //   while (capitalQuizCountry === incorrectThree) {
+  //     setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
+  //   }
+  //   while (incorrectOne === incorrectTwo) {
+  //     setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
+  //   }
+  //   while (incorrectOne === incorrectThree) {
+  //     setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
+  //   }
+  //   while (incorrectTwo === incorrectThree) {
+  //     setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
+  //   }
+  // }
 
   function handleCapitalAnswer (event) {
     if (capitalResponseGiven === false) {
@@ -67,7 +67,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     setIncorrectOne(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
-    checkForDuplicates()
+    // checkForDuplicates(capitalQuizCountry, incorrectOne, incorrectTwo, incorrectThree, setIncorrectOne, setIncorrectTwo, setIncorrectThree, countryData)
     let nextCapitalQuestion = currentCapitalQuestion + 1
     setCurrentCapitalQuestion(nextCapitalQuestion)
     setCapitalResponseGiven(false)

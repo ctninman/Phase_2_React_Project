@@ -15,6 +15,27 @@ function Quizzes ({countryData, orderNumbers, fullUserObject, setUserScore}) {
   const [capitalHighScore, setCapitalHighScore] = useState(fullUserObject.capitalsHighScore)
   const [populationHighScore, setPopulationHighScore] = useState(fullUserObject.populationHighScore)
 
+  // function checkForDuplicates (a, b, c, d, setterB, setterC, setterD, countryArray) {
+  //   while (a === b) {
+  //     setterB(countryArray[Math.floor(Math.random()*countryArray.length)])
+  //   }
+  //   while (a === c) {
+  //     setterC(countryArray[Math.floor(Math.random()*countryArray.length)])
+  //   }
+  //   while (a === d) {
+  //     setterD(countryArray[Math.floor(Math.random()*countryArray.length)])
+  //   }
+  //   while (b === c) {
+  //     setterC(countryArray[Math.floor(Math.random()*countryArray.length)])
+  //   }
+  //   while (b === d) {
+  //     setterD(countryArray[Math.floor(Math.random()*countryArray.length)])
+  //   }
+  //   while (c === d) {
+  //     setterD(countryArray[Math.floor(Math.random()*countryArray.length)])
+  //   }
+  // }
+
     // *** JSX *** //
   return (
     <>
