@@ -33,13 +33,6 @@
       "id": 33
     },
     {
-      "flagsHighScore": 0,
-      "populationHighScore": 0,
-      "continentsHighScore": 0,
-      "capitalsHighScore": 0,
-      "id": 34
-    },
-    {
       "userName": "Jimbo",
       "flagsHighScore": 1,
       "populationHighScore": 0,
@@ -86,6 +79,30 @@
       "continentsHighScore": 23,
       "capitalsHighScore": 0,
       "id": 40
+    },
+    {
+      "userName": "terry",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 41
+    },
+    {
+      "userName": "bingbong",
+      "flagsHighScore": 25,
+      "populationHighScore": 0,
+      "continentsHighScore": 20,
+      "capitalsHighScore": 0,
+      "id": 42
+    },
+    {
+      "userName": "Mr. Chris",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 43
     }
   ]
 }

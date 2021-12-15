@@ -15,8 +15,6 @@ const linkStyles = {
 function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, userScore, setUserScore}) {
 
   const [login, setLogin] = useState('')
-  
-  let enteredUserName;
 
   useEffect(() => {
     fetchUserData()
@@ -33,7 +31,6 @@ function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, user
   function enterUserName (event) {
     event.preventDefault()
     document.getElementById('username-form').reset()
-    console.log(login)
     setUserName(login)
   }
 

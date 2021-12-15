@@ -101,7 +101,7 @@ function Population ({countries}) {
             {countriesToDisplay.map((country) => (
               <li >
                 <PopulationRow 
-                key={country.name.common} 
+                key={country.fifa}
                 name={country.name.common} 
                 size={(country.population).toLocaleString()} 
                 continent={country.continents[0]} 

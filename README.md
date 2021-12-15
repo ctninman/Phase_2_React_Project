@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# WORLD QUIZ World
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Project - WORLD QUIZ World
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+Users can browse information about world countries using info from the RestCountries API. Web application includes information about all 195 countries of the world. It includes flag flashcards that can be filtered by continent, capital flashcards, a list of countries arranged by population size and continent. Users can also take four quizzes to test their knowledge, and save their high score.
 
-### `npm start`
+## Countries
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The Countries section contains an section for each country, which includes the country's flag, population, official language(s), area, and name in the official language of the country. Users can search for a country, or filter countries by the first letter.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Capitals
 
-### `npm test`
+The Capitals section contains flashcards for each individual country. Upon load, each country's flag and name is displayed. When a user clicks on them, the country's capital is revealed. Users can toggle between the two.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Continents
 
-### `npm run build`
+The Continents section displays the names and number of countries in each selected continent.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Flags
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The Flags section contains flashcards for each individual country. Upon load, each country's flag is displayed. When a user clicks on them, the country's name is revealed. Users can toggle between the two and filter the countries by continent.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Population
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The Population section contains an ordered list of countries by population size from largest to smallest. Users can create a list of countries that match a selected continent, as well as a selected population size range. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Quizzes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Users can take four separate quizzes: capitals, flags, population, and continents. Each quiz contains 25 questions. If a user enters a username, their highest score will be saved, and is accessed whenever the user enters their username. The total user score is a combination of the four quiz scores, and is displayed by the login bar. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Background photo by Photo by <a href="https://unsplash.com/@marjan_blan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marjan Blan | @marjanblan</a> on <a href="https://unsplash.com/s/photos/world-map?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  

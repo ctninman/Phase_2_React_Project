@@ -25,7 +25,7 @@ function App() {
     "capitalsHighScore": 0
   })
   const [userScore, setUserScore] = useState(0)
-  const [flagQuizHighScore, setFlagQuizHighScore] = useState (0)
+
 
   useEffect (() => {
     fetch('https://restcountries.com/v3.1/all')
@@ -92,8 +92,7 @@ function App() {
               userScore={userScore}
               setUserScore={setUserScore}
               fullUserObject={fullUserObject}
-              setFullUserObject={setFullUserObject}
-              flagQuizHighScore={flagQuizHighScore}/>
+              setFullUserObject={setFullUserObject}/>
           </Route>
           <Route path='/capitals'>
             <Capitals 
@@ -123,6 +122,9 @@ function App() {
             <Home />
           </Route>
         </Switch>
+        <footer style={{textAlign: 'left', color: 'white', paddingLeft: '10px', paddingBottom: '10px'}}>
+          Background photo by <a style={{color: 'lightgray'}}href={'https://unsplash.com/@marjan_blan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'}>Marjan Blan | @marjanblan</a> on <a style={{color: 'lightgray'}} href={"https://unsplash.com/s/photos/world-map?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"}>Unsplash</a>
+        </footer>
     </div>
   )
 }
