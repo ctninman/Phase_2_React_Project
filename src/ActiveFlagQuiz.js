@@ -59,6 +59,15 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
         <ul style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id='flag-quiz-buttons'>
           <li>
               <button 
+                name="flagAnswer2"
+                className={'flag-button'}
+                style={{backgroundColor: 'lightgray', color: 'black'}}
+                value={incorrectFlagOne.name.common}
+                onClick={handleFlagAnswer}
+                > {incorrectFlagOne.name.common} </button>
+          </li>
+          <li>
+              <button 
                 name="flagAnswer1" 
                 id="correct-answer"
                 className={'flag-button'}
@@ -66,15 +75,6 @@ function ActiveFlagQuiz ({ flagQuizCountry, incorrectFlagOne, incorrectFlagTwo, 
                 value={flagQuizCountry.name.common}
                 onClick={handleFlagAnswer}
               > {flagQuizCountry.name.common} </button>
-          </li>
-          <li>
-              <button 
-                name="flagAnswer2"
-                className={'flag-button'}
-                style={{backgroundColor: 'lightgray', color: 'black'}}
-                value={incorrectFlagOne.name.common}
-                onClick={handleFlagAnswer}
-                > {incorrectFlagOne.name.common} </button>
           </li>
           <li>
               <button 

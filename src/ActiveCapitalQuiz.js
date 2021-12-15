@@ -1,4 +1,4 @@
-function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, incorrectThree, handleCapitalAnswer, setNextCapitalQuestion, capitalQuizScore, currentCapitalQuestion, captialResponseGiven}) {
+function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, incorrectThree, handleCapitalAnswer, setNextCapitalQuestion, capitalQuizScore, currentCapitalQuestion, capitalResponseGiven}) {
   
   function randomizeItems(items) {
     let cached = items.slice(0), temp, i = cached.length, rand;
@@ -24,7 +24,7 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
   }
 
   function capitalOnClick () {
-    if (captialResponseGiven === true) {
+    if (capitalResponseGiven === true) {
       randomizeList();
       setNextCapitalQuestion()
     }
@@ -51,15 +51,6 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
         <ul style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}} id='capital-quiz-buttons'>
           <li>
             <button 
-              name="Answer1" 
-              id="correct-answer"
-              className={'capital-button'}
-              value={capitalQuizCountry.name.common}
-              onClick={handleCapitalAnswer}
-            > {capitalQuizCountry.flag} {capitalQuizCountry.name.common} </button>
-          </li>
-          <li>
-            <button 
               name="Answer2"
               className={'capital-button'}
               value={incorrectOne.name.common}
@@ -81,6 +72,15 @@ function ActiveCapitalQuiz ({ capitalQuizCountry, incorrectOne, incorrectTwo, in
               value={incorrectThree.name.common}
               onClick={handleCapitalAnswer}
             > {incorrectThree.flag} {incorrectThree.name.common} </button>
+          </li>
+          <li>
+            <button 
+              name="Answer1" 
+              id="correct-answer"
+              className={'capital-button'}
+              value={capitalQuizCountry.name.common}
+              onClick={handleCapitalAnswer}
+            > {capitalQuizCountry.flag} {capitalQuizCountry.name.common} </button>
           </li>
         </ul>
       </div>

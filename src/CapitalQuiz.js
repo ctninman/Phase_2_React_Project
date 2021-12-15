@@ -113,7 +113,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
         : 
         <ActiveCapitalQuiz
           capitalQuizCountry={capitalQuizCountry}
-          captialResponseGiven={capitalResponseGiven}
+          capitalResponseGiven={capitalResponseGiven}
           incorrectOne={incorrectOne}
           incorrectTwo={incorrectTwo}
           incorrectThree={incorrectThree}

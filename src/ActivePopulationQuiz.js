@@ -44,15 +44,6 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
       <ul id='population-quiz-buttons' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
         <li>
           <button 
-            name="populationAnswer1" 
-            id='correct-answer'
-            className={'population-button'}
-            value={orderedCountriesArray[0].name.common}
-            onClick={handlePopulationAnswer}
-          > {orderedCountriesArray[0].flag} {orderedCountriesArray[0].name.common} </button>
-        </li>
-        <li>
-          <button 
             name="populationAnswer2"
             className={'population-button'}
             value={orderedCountriesArray[1].name.common}
@@ -66,6 +57,15 @@ function ActivePopulationQuiz ({ orderedCountriesArray, handlePopulationAnswer, 
           value={orderedCountriesArray[2].name.common}
           onClick={handlePopulationAnswer}
           >{orderedCountriesArray[2].flag} {orderedCountriesArray[2].name.common} </button>
+        </li>
+        <li>
+          <button 
+            name="populationAnswer1" 
+            id='correct-answer'
+            className={'population-button'}
+            value={orderedCountriesArray[0].name.common}
+            onClick={handlePopulationAnswer}
+          > {orderedCountriesArray[0].flag} {orderedCountriesArray[0].name.common} </button>
         </li>
         <li>
           <button 

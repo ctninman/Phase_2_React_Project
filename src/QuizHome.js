@@ -6,7 +6,13 @@ function QuizHome ({continentHighScore, flagHighScore, capitalHighScore, populat
 
   return (
     <div className='quiz-tv'>
-      <h1 className='tab-header' style={{backgroundColor: 'black', color: 'white', marginLeft: '15%', marginRight: '15%'}}>{fullUserObject.userName}'s Total Score: 
+      <h1 style={{color: 'red'}}>{fullUserObject.userName === "Player" ? 'Enter a username to save your high scores' : null}</h1>
+      <h1 
+        className='tab-header' 
+        style={{backgroundColor: 'black', 
+        color: 'white', marginLeft: '15%', 
+        marginRight: '15%'}}>
+          {fullUserObject.userName}'s Total Score: 
         {stateTotalScore > totalScore
           ?
         stateTotalScore
