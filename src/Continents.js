@@ -1,11 +1,10 @@
 import Continent from "./Continent"
 import {useEffect, useState} from 'react'
 
-function Continents ({alphabetize, countries, countryList, setCountryList}) {
+function Continents ({alphabetize, countries, continentCountryList, setContinentCountryList}) {
    
     // *** STATE VARIABLES *** // 
   const [selectedContinents, setSelectedContinents] = useState("the world");
-  const [continentCountriesList, setContinentCountriesList] = useState([...countries])
 
   // useEffect (() => {
   //   setCountryList(countries)
@@ -15,7 +14,7 @@ function Continents ({alphabetize, countries, countryList, setCountryList}) {
     document.title = "WQW - Continents"
   }, [] )
 
-  function filteredByContinent (event) {
+  function filterByContinent (event) {
     const filteredContinent = countries.filter((country) => {
       if (event.target.value === 'the world') {
         return true
@@ -24,7 +23,7 @@ function Continents ({alphabetize, countries, countryList, setCountryList}) {
       }
       return false
     })
-    setContinentCountriesList(filteredContinent) 
+    setContinentCountryList(filteredContinent) 
     setSelectedContinents(event.target.value)
   }
 
@@ -34,14 +33,14 @@ function Continents ({alphabetize, countries, countryList, setCountryList}) {
       <div >
         <h1 className='tab-header'>Continents</h1>
         <div style={{marginTop: '-25px'}}>
-          <button onClick={filteredByContinent} value={'the world'}>All Continents</button>
-          <button onClick={filteredByContinent} value={'Africa'}>Africa</button>
-          <button onClick={filteredByContinent} value={'Europe'}>Europe</button>
-          <button onClick={filteredByContinent} value={'Asia'}>Asia</button>
-          <button onClick={filteredByContinent} value={'Oceania'}>Oceania</button>
-          <button onClick={filteredByContinent} value={'North America'}>North America</button>
-          <button onClick={filteredByContinent} value={'South America'}>South America</button>
-          <button onClick={filteredByContinent} value={'Antarctica'}>Antarctica</button>
+          <button onClick={filterByContinent} value={'the world'}>All Continents</button>
+          <button onClick={filterByContinent} value={'Africa'}>Africa</button>
+          <button onClick={filterByContinent} value={'Europe'}>Europe</button>
+          <button onClick={filterByContinent} value={'Asia'}>Asia</button>
+          <button onClick={filterByContinent} value={'Oceania'}>Oceania</button>
+          <button onClick={filterByContinent} value={'North America'}>North America</button>
+          <button onClick={filterByContinent} value={'South America'}>South America</button>
+          <button onClick={filterByContinent} value={'Antarctica'}>Antarctica</button>
 
         </div>
         <h2 
@@ -51,11 +50,11 @@ function Continents ({alphabetize, countries, countryList, setCountryList}) {
             color: 'white', marginLeft: '200px', 
             marginRight: '200px', 
             marginTop: '0px'}}
-          >There are {continentCountriesList.length} countries in {selectedContinents}.
+          >There are {continentCountryList.length} countries in {selectedContinents}.
         </h2>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', flexWrap:'wrap', justifyContent: 'space-between'}}>
-        {continentCountriesList.sort(alphabetize).map((country) => (
+        {continentCountryList.sort(alphabetize).map((country) => (
           <Continent 
           key={country.name.common}
           country={country}/>

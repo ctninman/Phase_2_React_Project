@@ -15,7 +15,8 @@ function App() {
 
     // *** STATE VARIABLES *** //
   const [countries, setCountries] = useState([])
-  const [countryList, setCountryList] = useState([])
+  const [flagCountryList, setFlagCountryList] = useState([])
+  const [continentCountryList, setContinentCountryList] = useState([])
   const [userName, setUserName] = useState('')
   const [fullUserObject, setFullUserObject] = useState({
     "userName": "Player",
@@ -38,7 +39,8 @@ function App() {
       const unMemberCountries = data.filter((country) => country.unMember === true || country.cca2 === 'PS' || country.cca2 === 'GW');
       console.log('un', unMemberCountries);
       setCountries(unMemberCountries)
-      setCountryList(unMemberCountries)
+      setFlagCountryList(unMemberCountries)
+      setContinentCountryList(unMemberCountries)
     })
   }, [] )
 
@@ -94,17 +96,17 @@ function App() {
         });
   }
 
-  function filterByContinent (event) {
-    const filteredContinent = countries.filter((country) => {
-      if (event.target.value === 'the world') {
-        return true
-      } else if (event.target.value === country.continents[0]) {
-        return true
-      }
-        return false
-    }) 
-    setCountryList(filteredContinent)
-  }
+  // function filterByContinent (event) {
+  //   const filteredContinent = countries.filter((country) => {
+  //     if (event.target.value === 'the world') {
+  //       return true
+  //     } else if (event.target.value === country.continents[0]) {
+  //       return true
+  //     }
+  //       return false
+  //   }) 
+  //   setCountryList(filteredContinent)
+  // }
 
   function alphabetize ( a, b ) {
     if ( a.name.common < b.name.common ){
@@ -166,10 +168,9 @@ function App() {
           <Route exact path='/continents'>
             <Continents 
               alphabetize={alphabetize} 
-              filterContinents={filterByContinent} 
-              countryList={countryList}
+              continentCountryList={continentCountryList}
               countries={countries}
-              setCountryList={setCountryList}/>
+              setContinentCountryList={setContinentCountryList}/>
           </Route>
           <Route exact path='/population'>
             <Population 
@@ -177,10 +178,9 @@ function App() {
           </Route>
           <Route exact path='/flags'>
             <Flags 
-              filterContinents={filterByContinent} 
               allCountries={countries} 
-              countryList={countryList} 
-              onFlagPageLoad={setCountryList}/>
+              flagCountryList={flagCountryList} 
+              setFlagCountryList={setFlagCountryList}/>
           </Route>
           <Route exact path='/'>
             <Home />
