@@ -1,8 +1,4 @@
-function QuizHome ({continentHighScore, flagHighScore, capitalHighScore, populationHighScore, fullUserObject}) {
-  
-  let totalScore = fullUserObject.continentsHighScore + fullUserObject.flagsHighScore + fullUserObject.capitalsHighScore + fullUserObject.populationHighScore
-
-  let stateTotalScore = continentHighScore + flagHighScore + capitalHighScore + populationHighScore
+function QuizHome ({continentHighScore, flagHighScore, capitalHighScore, populationHighScore, fullUserObject, userScore}) {
 
   return (
     <div className='quiz-tv'>
@@ -12,40 +8,19 @@ function QuizHome ({continentHighScore, flagHighScore, capitalHighScore, populat
         style={{backgroundColor: 'black', 
         color: 'white', marginLeft: '15%', 
         marginRight: '15%'}}>
-          {fullUserObject.userName}'s Total Score: 
-        {stateTotalScore > totalScore
-          ?
-        stateTotalScore
-          :
-        totalScore}
+          {fullUserObject.userName}'s Total Score: {userScore}
         </h1>
-      <h2>Continents High Score: 
-        {continentHighScore > fullUserObject.continentsHighScore 
-          ?
-        continentHighScore
-          :
-        ` ${fullUserObject.continentsHighScore}`}
+      <h2>
+        Continents High Score: {continentHighScore}
       </h2>
-      <h2>Flags High Score: 
-        {flagHighScore > fullUserObject.flagsHighScore 
-          ?
-        flagHighScore
-          :
-        ` ${fullUserObject.flagsHighScore}`}
+      <h2>
+        Flags High Score: {flagHighScore}
       </h2>
-      <h2>Capitals High Score: 
-        {capitalHighScore > fullUserObject.capitalsHighScore 
-          ?
-        capitalHighScore
-          :
-        ` ${fullUserObject.capitalsHighScore}`}
+      <h2>
+        Capitals High Score: {capitalHighScore}
       </h2>
-      <h2>Population High Score: 
-        {populationHighScore > fullUserObject.populationHighScore 
-          ?
-        populationHighScore
-          :
-        ` ${fullUserObject.populationHighScore}`}
+      <h2>
+        Population High Score: {populationHighScore}
       </h2>
     </div>
   )

@@ -71,7 +71,11 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
      .then((res) => {
           return res.json()
         })
-        .then(user => setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore));
+      .then(user => { 
+        setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore)
+        setContinentHighScore(user.continentsHighScore)
+      }
+    );
   }
   
     // *** JSX *** //

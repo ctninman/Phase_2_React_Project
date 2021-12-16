@@ -1,13 +1,18 @@
 import Continent from "./Continent"
 import {useEffect, useState} from 'react'
 
-function Continents ({alphabetize, filterContinents, countries, countryList, setCountryList, allCountries, onContinentPageLoad}) {
+function Continents ({alphabetize, countries, countryList, setCountryList}) {
    
     // *** STATE VARIABLES *** // 
   const [selectedContinents, setSelectedContinents] = useState("the world");
+  const [continentCountriesList, setContinentCountriesList] = useState([...countries])
+
+  // useEffect (() => {
+  //   setCountryList(countries)
+  // }, [])
 
   useEffect (() => {
-    setCountryList(allCountries)
+    document.title = "WQW - Continents"
   }, [] )
 
   function filteredByContinent (event) {
@@ -17,8 +22,9 @@ function Continents ({alphabetize, filterContinents, countries, countryList, set
       } else if (event.target.value === country.continents[0]) {
         return true
       }
+      return false
     })
-    setCountryList(filteredContinent) 
+    setContinentCountriesList(filteredContinent) 
     setSelectedContinents(event.target.value)
   }
 
@@ -45,11 +51,11 @@ function Continents ({alphabetize, filterContinents, countries, countryList, set
             color: 'white', marginLeft: '200px', 
             marginRight: '200px', 
             marginTop: '0px'}}
-          >There are {countryList.length} countries in {selectedContinents}.
+          >There are {continentCountriesList.length} countries in {selectedContinents}.
         </h2>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', flexWrap:'wrap', justifyContent: 'space-between'}}>
-        {countryList.sort(alphabetize).map((country) => (
+        {continentCountriesList.sort(alphabetize).map((country) => (
           <Continent 
           key={country.name.common}
           country={country}/>

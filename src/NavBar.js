@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom'
 
 const linkStyles = {
@@ -12,68 +11,11 @@ const linkStyles = {
   borderRadius: '5px'
 };
 
-function NavBar({ userName, fullUserObject, setUserName, setFullUserObject, userScore, setUserScore}) {
-
-  const [login, setLogin] = useState('')
-
-  useEffect(() => {
-    fetchUserData()
-  }, [userName] )
-
-  useEffect(() => {
-    setUserScore(fullUserObject.flagsHighScore + fullUserObject.populationHighScore + fullUserObject.continentsHighScore + fullUserObject.capitalsHighScore)
-  }, [fullUserObject] )
+function NavBar({ login, setLogin, enterUserName, userName, userScore}) {
 
   function handleLoginType (event) {
     setLogin(event.target.value)
   }
-
-  function enterUserName (event) {
-    event.preventDefault()
-    document.getElementById('username-form').reset()
-    setUserName(login)
-  }
-
-  function postUserData (object) {  
-    if (fullUserObject.userName && fullUserObject.userName !== '')
-      fetch(`http://localhost:3000/users`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json",},
-        body: JSON.stringify(object),
-      })
-        .then((res) => {
-          return res.json()
-        })
-        .then(fullUserObject => setFullUserObject(fullUserObject));
-  }
-
-  function fetchUserData () {
-    if (userName !== '') {
-      fetch(`http://localhost:3000/users`, {method: 'GET'})
-      .then(res => res.json())
-      .then(function (userData) {
-          let foundUser = userData.find((user) => {
-            return userName === user.userName
-          })
-      
-        if (foundUser) {
-          console.log('hereIam', foundUser)
-          setFullUserObject(foundUser)
-        } else {
-          console.log('aintathing')
-          let newUserObject = {
-            "userName": userName,
-            "flagsHighScore": 0,
-            "populationHighScore": 0,
-            "continentsHighScore": 0,
-            "capitalsHighScore": 0
-          }
-          postUserData(newUserObject)
-        }
-      })
-    }
-  }
-
 
     // *** JSX *** //
   return (

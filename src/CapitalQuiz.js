@@ -98,7 +98,10 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     .then((res) => {
       return res.json()
     })
-    .then(user => setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore));
+    .then(user => {
+      setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore)
+      setCapitalHighScore(user.capitalsHighScore)
+    })
   }
 
     // *** JSX *** //

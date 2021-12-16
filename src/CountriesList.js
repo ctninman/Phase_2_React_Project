@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Country from "./Country"
 import Filter from './Filter'
 
@@ -8,8 +8,12 @@ function CountriesList ({countries, alphabetizeCountries}) {
   const [searchText, setSearchText] = useState('')
 
   const filteredCountryList = countries.filter((country) => {
-    return country.name.common.toLowerCase().startsWith(searchText)
+    return country.name.common.toLowerCase().startsWith(searchText.toLowerCase())
   })
+
+  useEffect (() => {
+    document.title = "WQW - Countries"
+  }, [] )
 
     // *** JSX *** //
   return (

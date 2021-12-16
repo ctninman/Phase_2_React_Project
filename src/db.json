@@ -77,7 +77,7 @@
       "flagsHighScore": 22,
       "populationHighScore": 21,
       "continentsHighScore": 23,
-      "capitalsHighScore": 0,
+      "capitalsHighScore": 22,
       "id": 40
     },
     {
@@ -91,9 +91,9 @@
     {
       "userName": "bingbong",
       "flagsHighScore": 25,
-      "populationHighScore": 0,
-      "continentsHighScore": 20,
-      "capitalsHighScore": 0,
+      "populationHighScore": 21,
+      "continentsHighScore": 24,
+      "capitalsHighScore": 22,
       "id": 42
     },
     {
@@ -108,9 +108,89 @@
       "userName": "Chris",
       "flagsHighScore": 0,
       "populationHighScore": 18,
+      "continentsHighScore": 3,
+      "capitalsHighScore": 13,
+      "id": 44
+    },
+    {
+      "userName": "Poppyseed",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 24,
+      "capitalsHighScore": 22,
+      "id": 45
+    },
+    {
+      "userName": "Chips",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
       "continentsHighScore": 0,
       "capitalsHighScore": 0,
-      "id": 44
+      "id": 46
+    },
+    {
+      "userName": "Barn",
+      "flagsHighScore": 24,
+      "populationHighScore": 0,
+      "continentsHighScore": 2,
+      "capitalsHighScore": 7,
+      "id": 47
+    },
+    {
+      "userName": "Cristoforo",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 48
+    },
+    {
+      "userName": "BigThief",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 20,
+      "id": 49
+    },
+    {
+      "userName": "loobs",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 50
+    },
+    {
+      "userName": "Bologna",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 51
+    },
+    {
+      "userName": "Togo",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 52
+    },
+    {
+      "userName": "PeterPan",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 8,
+      "id": 53
+    },
+    {
+      "userName": "Bobbo",
+      "flagsHighScore": 0,
+      "populationHighScore": 0,
+      "continentsHighScore": 0,
+      "capitalsHighScore": 0,
+      "id": 54
     }
   ]
 }

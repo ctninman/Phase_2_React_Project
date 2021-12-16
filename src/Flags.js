@@ -6,6 +6,10 @@ function Flags ({filterContinents, countryList, onFlagPageLoad, allCountries}) {
   useEffect (() => {
     onFlagPageLoad(allCountries)
   }, [] )
+
+  useEffect (() => {
+    document.title = "WQW - Flags"
+  }, [] )
   
   return (
     <div style={{marginTop: '-10px'}}>

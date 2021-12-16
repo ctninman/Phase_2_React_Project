@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import PopulationRow from './PopulationRow'
 
 function Population ({countries}) {
@@ -6,6 +6,10 @@ function Population ({countries}) {
     // *** STATE VARIABLES *** //
   const [selectedContinent, setSelectedContinent] = useState("the world");
   const [selectedSize, setSelectedSize] = useState('any size')
+
+  useEffect (() => {
+    document.title = "WQW - Population"
+  }, [] )
 
   function handleContinentChange(event) {
     setSelectedContinent(event.target.value);
@@ -32,6 +36,7 @@ function Population ({countries}) {
       } else if (selectedSize === 'fewer than 1 million people') {
         return country.population < 1000000
       }
+      return false
    }
   );
 
@@ -99,9 +104,9 @@ function Population ({countries}) {
               justifyContent: 'center', 
               alignContent: 'center'}}>
             {countriesToDisplay.map((country) => (
-              <li >
+              <li key={country.fifa}>
                 <PopulationRow 
-                key={country.fifa}
+                key={country.translations.ita.common}
                 name={country.name.common} 
                 size={(country.population).toLocaleString()} 
                 continent={country.continents[0]} 

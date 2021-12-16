@@ -1,6 +1,11 @@
 import CapitalCard from "./CapitalCard"
+import {useEffect} from "react"
 
 function Capitals ({countries}) {
+
+  useEffect (() => {
+    document.title = "WQW - Capitals"
+  }, [] )
 
   return (
     <div style={{marginTop: '-10px'}}>

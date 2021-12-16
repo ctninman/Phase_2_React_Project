@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Route, Switch, } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Capitals from './Capitals'
 import Flags from './Flags'
 import Continents from './Continents'
@@ -15,7 +15,7 @@ function App() {
 
     // *** STATE VARIABLES *** //
   const [countries, setCountries] = useState([])
-  const [countryList, setCountryList] = useState(countries)
+  const [countryList, setCountryList] = useState([])
   const [userName, setUserName] = useState('')
   const [fullUserObject, setFullUserObject] = useState({
     "userName": "Player",
@@ -25,7 +25,11 @@ function App() {
     "capitalsHighScore": 0
   })
   const [userScore, setUserScore] = useState(0)
-
+  const [continentHighScore, setContinentHighScore] = useState(fullUserObject.continentsHighScore)
+  const [flagHighScore, setFlagHighScore] = useState(fullUserObject.flagsHighScore)
+  const [capitalHighScore, setCapitalHighScore] = useState(fullUserObject.capitalsHighScore)
+  const [populationHighScore, setPopulationHighScore] = useState(fullUserObject.populationHighScore)
+  const [login, setLogin] = useState('')
 
   useEffect (() => {
     fetch('https://restcountries.com/v3.1/all')
@@ -34,8 +38,61 @@ function App() {
       const unMemberCountries = data.filter((country) => country.unMember === true || country.cca2 === 'PS' || country.cca2 === 'GW');
       console.log('un', unMemberCountries);
       setCountries(unMemberCountries)
+      setCountryList(unMemberCountries)
     })
   }, [] )
+
+  function enterUserName (event) {
+    event.preventDefault()
+    document.getElementById('username-form').reset()
+    setUserName(login)
+    if (login !== '') {
+      fetch(`http://localhost:3000/users`, {method: 'GET'})
+      .then(res => res.json())
+      .then(function (userData) {
+          let foundUser = userData.find((user) => {
+            return login === user.userName
+          })
+        if (foundUser) {
+          setFullUserObject(foundUser)
+          setContinentHighScore(foundUser.continentsHighScore)
+          setCapitalHighScore(foundUser.capitalsHighScore)
+          setFlagHighScore(foundUser.flagsHighScore)
+          setPopulationHighScore(foundUser.populationHighScore)
+          setUserScore(foundUser.flagsHighScore + foundUser.populationHighScore + foundUser.continentsHighScore + foundUser.capitalsHighScore)
+        } else {
+          let newUserObject = {
+            "userName": login,
+            "flagsHighScore": 0,
+            "populationHighScore": 0,
+            "continentsHighScore": 0,
+            "capitalsHighScore": 0
+          }
+          postUserData(newUserObject)
+        }
+      })
+    }
+  }
+
+  function postUserData (object) {  
+    if (fullUserObject.userName && fullUserObject.userName !== '')
+      fetch(`http://localhost:3000/users`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json",},
+        body: JSON.stringify(object),
+      })
+        .then((res) => {
+          return res.json()
+        })
+        .then(fullUserObject => {
+          setFullUserObject(fullUserObject)
+          setContinentHighScore(fullUserObject.continentsHighScore)
+          setCapitalHighScore(fullUserObject.capitalsHighScore)
+          setFlagHighScore(fullUserObject.flagsHighScore)
+          setPopulationHighScore(fullUserObject.populationHighScore)
+          setUserScore(fullUserObject.flagsHighScore + fullUserObject.populationHighScore + fullUserObject.continentsHighScore + fullUserObject.capitalsHighScore)
+        });
+  }
 
   function filterByContinent (event) {
     const filteredContinent = countries.filter((country) => {
@@ -44,6 +101,7 @@ function App() {
       } else if (event.target.value === country.continents[0]) {
         return true
       }
+        return false
     }) 
     setCountryList(filteredContinent)
   }
@@ -74,11 +132,10 @@ function App() {
       <NavBar 
         className='NavBar'
         userName={userName}
-        fullUserObject={fullUserObject} 
-        setUserName={setUserName}
         userScore={userScore}
-        setUserScore={setUserScore}
-        setFullUserObject={setFullUserObject}/>
+        enterUserName={enterUserName}
+        login={login}
+        setLogin={setLogin}/>
         <Switch>
         <Route exact path='/countries'>
             <CountriesList 
@@ -91,12 +148,20 @@ function App() {
               orderNumbers={orderNumbers} 
               userScore={userScore}
               setUserScore={setUserScore}
+              continentHighScore={continentHighScore}
+              setContinentHighScore={setContinentHighScore}
+              capitalHighScore={capitalHighScore}
+              setCapitalHighScore={setCapitalHighScore}
+              flagHighScore={flagHighScore}
+              setFlagHighScore={setFlagHighScore}
+              populationHighScore={populationHighScore}
+              setPopulationHighScore={setPopulationHighScore}
               fullUserObject={fullUserObject}
               setFullUserObject={setFullUserObject}/>
           </Route>
           <Route path='/capitals'>
             <Capitals 
-              countries={countries}/>
+              countries={[...countries.sort((a, b) => 0.5 - Math.random())]}/>
           </Route>
           <Route exact path='/continents'>
             <Continents 
@@ -104,7 +169,6 @@ function App() {
               filterContinents={filterByContinent} 
               countryList={countryList}
               countries={countries}
-              allCountries={countries}
               setCountryList={setCountryList}/>
           </Route>
           <Route exact path='/population'>

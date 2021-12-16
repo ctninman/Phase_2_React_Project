@@ -1,19 +1,29 @@
 import { Route, Switch, Link } from 'react-router-dom'
-import { useState } from 'react'
 
 import QuizHome from './QuizHome'
 import CapitalQuiz from "./CapitalQuiz"
 import ContinentQuiz from "./ContinentQuiz"
 import FlagQuiz from "./FlagQuiz"
 import PopulationQuiz from "./PopulationQuiz"
+import { useEffect } from 'react'
 
-function Quizzes ({countryData, orderNumbers, fullUserObject, setUserScore}) {
+function Quizzes ({countryData, 
+  orderNumbers, 
+  fullUserObject, 
+  setUserScore, 
+  userScore, 
+  continentHighScore, 
+  setContinentHighScore, 
+  capitalHighScore, 
+  setCapitalHighScore, 
+  flagHighScore, 
+  setFlagHighScore, 
+  populationHighScore,
+  setPopulationHighScore}) {
 
-    // *** STATE VARIABLES *** //
-  const [continentHighScore, setContinentHighScore] = useState(fullUserObject.continentsHighScore)
-  const [flagHighScore, setFlagHighScore] = useState(fullUserObject.flagsHighScore)
-  const [capitalHighScore, setCapitalHighScore] = useState(fullUserObject.capitalsHighScore)
-  const [populationHighScore, setPopulationHighScore] = useState(fullUserObject.populationHighScore)
+    useEffect (() => {
+      document.title = "WQW - Quizzes"
+    }, [] )
 
   // function checkForDuplicates (a, b, c, d, setterB, setterC, setterD, countryArray) {
   //   while (a === b) {
@@ -52,6 +62,7 @@ function Quizzes ({countryData, orderNumbers, fullUserObject, setUserScore}) {
               continentHighScore={continentHighScore}
               populationHighScore={populationHighScore}
               flagHighScore={flagHighScore}
+              userScore={userScore}
               capitalHighScore={capitalHighScore}
               fullUserObject={fullUserObject}/>
           </Route>

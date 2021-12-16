@@ -99,7 +99,10 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     .then((res) => {
       return res.json()
     })
-    .then(user => setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore));
+    .then(user => {
+      setUserScore(user.flagsHighScore + user.continentsHighScore + user.capitalsHighScore + user.populationHighScore)
+      setPopulationHighScore(user.populationHighScore)
+    });
   }
 
     // *** JSX *** //

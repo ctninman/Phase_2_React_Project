@@ -1,4 +1,10 @@
+import {useEffect} from 'react'
+
 function Home () {
+
+  useEffect (() => {
+    document.title = "WORLD QUIZ World"
+  }, [] )
 
   return (
     <div>
