@@ -5,15 +5,18 @@ function Continent ({country}) {
       style=
         {{paddingLeft: '10px',
         display: 'flex', 
+        flexDirection: 'row',
         border: '2px solid', 
         alignContent: 'space-around', 
+        textAlign: 'left',
+        flexWrap: 'wrap',
         backgroundColor: 'white', 
         margin: '10px', 
-        width: '200px', 
-        height: '45px', 
+        width: '150px', 
+        height: '40px', 
         flexWrap: 'wrap', 
         borderRadius: '5px'}}>
-      <h3>{country.flag} {country.name.common}</h3>
+      <h4>{country.flag} {country.name.common}</h4>
     </div>
   )
 }
