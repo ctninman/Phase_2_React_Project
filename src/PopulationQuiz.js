@@ -66,17 +66,15 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     let newRandomIncorrectOne = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectTwo = countryData[Math.floor(Math.random()*countryData.length)];
     let newRandomIncorrectThree = countryData[Math.floor(Math.random()*countryData.length)];  
-    // checkForPopulationDuplicates(newRandomCorrectCountry, newRandomIncorrectOne, newRandomIncorrectTwo, newRandomIncorrectThree, countryData) 
     let newRandomCountriesArray = [newRandomCorrectCountry, newRandomIncorrectOne, newRandomIncorrectTwo, newRandomIncorrectThree]
     setOrderedContriesArray(newRandomCountriesArray.sort(orderNumbers))
-    let nextQuestion = currentPopulationQuestion + 1
-    setCurrentPopulationQuestion(nextQuestion)
+    setCurrentPopulationQuestion(currentPopulationQuestion + 1)
     setPopulationResponseGiven(false)
     resetButtonColors()
     if (currentPopulationQuestion >= 25){
       if (populationQuizScore > populationHighScore) {
         setPopulationHighScore(populationQuizScore)
-        patchUserData()
+        patchPopulationUserData()
         document.getElementById('population-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${populationQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -90,7 +88,7 @@ function PopulationQuiz ({countryData, orderNumbers, populationHighScore, setPop
     }
   }
 
-  const patchUserData = function () {  
+  const patchPopulationUserData = function () {  
     fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
       method: "PATCH",
       headers: {"Content-Type": "application/json"},

@@ -46,15 +46,13 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     setIncorrectFlagOne(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectFlagTwo(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectFlagThree(countryData[Math.floor(Math.random()*countryData.length)])
-    // checkForDuplicates()
-    let nextQuestion = currentFlagQuestion + 1
-    setCurrentFlagQuestion(nextQuestion)
+    setCurrentFlagQuestion(currentFlagQuestion + 1)
     setFlagResponseGiven(false)
     resetButtonColors()
-    if (currentFlagQuestion >= 2){
+    if (currentFlagQuestion >= 25){
       if (flagQuizScore > flagHighScore) {
         setFlagHighScore(flagQuizScore)
-        patchUserData()
+        patchFlagUserData()
         document.getElementById('flag-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${flagQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -68,7 +66,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     }
   }
 
-  const patchUserData = function () {  
+  const patchFlagUserData = function () {  
     fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
       method: "PATCH",
       headers: {"Content-Type": "application/json"},

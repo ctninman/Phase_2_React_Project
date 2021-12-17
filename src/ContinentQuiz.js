@@ -41,14 +41,13 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
     if (continentQuizCountry.name.common === 'Russia' || continentQuizCountry.name.common === 'Turkey') {
       setContinentQuizCountry(countryData[Math.floor(Math.random()*countryData.length)])
     }
-    let nextQuestion = currentContinentQuestion + 1
-    setCurrentContinentQuestion(nextQuestion)
+    setCurrentContinentQuestion(currentContinentQuestion + 1)
     setContinentResponseGiven(false)
     resetButtonColors()
     if (currentContinentQuestion >= 25){
       if (continentQuizScore > continentHighScore) {
         setContinentHighScore(continentQuizScore)
-        patchUserData()
+        patchContinentUserData()
         document.getElementById('continent-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${continentQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -62,7 +61,7 @@ function ContinentQuiz ({countryData, continentHighScore, setContinentHighScore,
     }
   }
 
-  const patchUserData = function () {  
+  const patchContinentUserData = function () {  
     fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
       method: "PATCH",
       headers: {"Content-Type": "application/json"},

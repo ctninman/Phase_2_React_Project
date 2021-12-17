@@ -207,6 +207,14 @@
       "continentsHighScore": 0,
       "capitalsHighScore": 0,
       "id": 56
+    },
+    {
+      "userName": "SharkTornado",
+      "flagsHighScore": 23,
+      "populationHighScore": 20,
+      "continentsHighScore": 24,
+      "capitalsHighScore": 14,
+      "id": 57
     }
   ]
 }

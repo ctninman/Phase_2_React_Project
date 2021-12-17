@@ -67,15 +67,13 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     setIncorrectOne(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
-    // checkForDuplicates(capitalQuizCountry, incorrectOne, incorrectTwo, incorrectThree, setIncorrectOne, setIncorrectTwo, setIncorrectThree, countryData)
-    // let nextCapitalQuestion = currentCapitalQuestion + 1
     setCurrentCapitalQuestion(currentCapitalQuestion + 1)
     setCapitalResponseGiven(false)
     resetButtonColors()
     if (currentCapitalQuestion >= 25){
       if (capitalQuizScore > capitalHighScore) {
         setCapitalHighScore(capitalQuizScore)
-        patchUserData()
+        patchCapitalUserData()
         document.getElementById('capital-quiz-tv').innerHTML = `<h1>NEW HIGH SCORE!</h1> <h1>Your Score: ${capitalQuizScore}</h1> <button id='newHS'>View High Scores</button>`
         document.getElementById('newHS').addEventListener('click', function () {
           history.push('/quizzes')
@@ -89,7 +87,7 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     }
   }
 
-  const patchUserData = function () {  
+  const patchCapitalUserData = function () {  
     fetch(`http://localhost:3000/users/${fullUserObject.id}`, {
       method: "PATCH",
       headers: {"Content-Type": "application/json"},
