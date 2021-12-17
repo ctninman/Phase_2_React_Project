@@ -1,11 +1,9 @@
 import {useEffect} from "react"
 import Flag from './Flag'
 
-function Flags ({ flagCountryList, setFlagCountryList, allCountries}) {
+function Flags ({ flagCountryList, setFlagCountryList, allCountries, flagsContinent, setFlagsContinent}) {
 
-  // useEffect (() => {
-  //   onFlagPageLoad(allCountries)
-  // }, [] )
+  
 
   useEffect (() => {
     document.title = "WQW - Flags"
@@ -21,12 +19,13 @@ function Flags ({ flagCountryList, setFlagCountryList, allCountries}) {
         return false
     }) 
     setFlagCountryList(filteredContinent)
+    setFlagsContinent(event.target.value)
   }
   
   return (
     <div style={{marginTop: '-10px'}}>
       <div>
-        <h1 className='tab-header'>Flags</h1>
+        <h1 className='tab-header'>Flags of {flagsContinent}</h1>
         <div style={{marginTop: '-25px'}}>
           <button onClick={filterFlagsByContinent} value={'the world'}>The World</button> 
           <button onClick={filterFlagsByContinent} value={'Africa'}>Africa</button>
@@ -38,7 +37,7 @@ function Flags ({ flagCountryList, setFlagCountryList, allCountries}) {
         </div>
       </div>
         <div style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-around'}}>
-          {flagCountryList.map((country) => (
+          {flagCountryList.sort((a, b) => 0.5 - Math.random()).map((country) => (
             <Flag 
               key={country.name.common}
               country={country}

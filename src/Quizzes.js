@@ -1,4 +1,4 @@
-import { Route, Switch, Link } from 'react-router-dom'
+import { Route, Switch, NavLink } from 'react-router-dom'
 
 import QuizHome from './QuizHome'
 import CapitalQuiz from "./CapitalQuiz"
@@ -51,11 +51,11 @@ function Quizzes ({countryData,
     <>
       <div className='quiz-page'>
         <h1 className='tab-header'>Quizzes</h1>
-        <Link to="/quizzes" className='quiz-menu'>Quiz Home</Link>
-        <Link to="/quizzes/population-quiz" className='quiz-menu'>Population Quiz</Link>
-        <Link to="/quizzes/flag-quiz" className='quiz-menu'>Flag Quiz</Link>
-        <Link to="/quizzes/continent-quiz" className='quiz-menu'>Continent Quiz</Link>
-        <Link to="/quizzes/capital-quiz" className='quiz-menu'>Capital Quiz</Link>
+        <NavLink to="/quizzes"  exact className='quiz-menu' activeStyle={{background: "#93C572", color: 'black'}}>Quiz Home</NavLink>
+        <NavLink to="/quizzes/population-quiz" className='quiz-menu' activeStyle={{background: "#93C572", color: 'black'}}>Population Quiz</NavLink>
+        <NavLink to="/quizzes/flag-quiz" className='quiz-menu' activeStyle={{background: "#93C572", color: 'black'}}>Flag Quiz</NavLink>
+        <NavLink to="/quizzes/continent-quiz" className='quiz-menu' activeStyle={{background: "#93C572", color: 'black'}}>Continent Quiz</NavLink>
+        <NavLink to="/quizzes/capital-quiz" className='quiz-menu' activeStyle={{background: "#93C572", color: 'black'}}>Capital Quiz</NavLink>
         <Switch>
           <Route exact path='/quizzes'>
             <QuizHome 

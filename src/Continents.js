@@ -1,10 +1,10 @@
 import Continent from "./Continent"
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 
-function Continents ({alphabetize, countries, continentCountryList, setContinentCountryList}) {
+function Continents ({alphabetize, countries, continentCountryList, setContinentCountryList, selectedContinents, setSelectedContinents}) {
    
     // *** STATE VARIABLES *** // 
-  const [selectedContinents, setSelectedContinents] = useState("the world");
+  
 
   // useEffect (() => {
   //   setCountryList(countries)

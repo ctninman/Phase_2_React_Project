@@ -51,7 +51,7 @@ function FlagQuiz ({countryData, flagHighScore, setFlagHighScore, fullUserObject
     setCurrentFlagQuestion(nextQuestion)
     setFlagResponseGiven(false)
     resetButtonColors()
-    if (currentFlagQuestion >= 25){
+    if (currentFlagQuestion >= 2){
       if (flagQuizScore > flagHighScore) {
         setFlagHighScore(flagQuizScore)
         patchUserData()

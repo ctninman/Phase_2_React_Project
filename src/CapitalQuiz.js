@@ -68,8 +68,8 @@ function CapitalQuiz ({countryData, capitalHighScore, setCapitalHighScore, fullU
     setIncorrectTwo(countryData[Math.floor(Math.random()*countryData.length)])
     setIncorrectThree(countryData[Math.floor(Math.random()*countryData.length)])
     // checkForDuplicates(capitalQuizCountry, incorrectOne, incorrectTwo, incorrectThree, setIncorrectOne, setIncorrectTwo, setIncorrectThree, countryData)
-    let nextCapitalQuestion = currentCapitalQuestion + 1
-    setCurrentCapitalQuestion(nextCapitalQuestion)
+    // let nextCapitalQuestion = currentCapitalQuestion + 1
+    setCurrentCapitalQuestion(currentCapitalQuestion + 1)
     setCapitalResponseGiven(false)
     resetButtonColors()
     if (currentCapitalQuestion >= 25){

@@ -106,6 +106,7 @@ function Population ({countries}) {
             {countriesToDisplay.map((country) => (
               <li key={country.fifa}>
                 <PopulationRow 
+                country={country}
                 key={country.translations.ita.common}
                 name={country.name.common} 
                 size={(country.population).toLocaleString()} 

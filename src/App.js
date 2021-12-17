@@ -17,6 +17,10 @@ function App() {
   const [countries, setCountries] = useState([])
   const [flagCountryList, setFlagCountryList] = useState([])
   const [continentCountryList, setContinentCountryList] = useState([])
+  const [capitalCountryList, setCapitalCountryList] = useState([])
+  const [flagsContinent, setFlagsContinent] = useState('the world')
+  const [capitalsContinent, setCapitalsContinent] = useState('the world')
+  const [selectedContinents, setSelectedContinents] = useState("the world");
   const [userName, setUserName] = useState('')
   const [fullUserObject, setFullUserObject] = useState({
     "userName": "Player",
@@ -41,6 +45,7 @@ function App() {
       setCountries(unMemberCountries)
       setFlagCountryList(unMemberCountries)
       setContinentCountryList(unMemberCountries)
+      setCapitalCountryList(unMemberCountries)
     })
   }, [] )
 
@@ -95,18 +100,6 @@ function App() {
           setUserScore(fullUserObject.flagsHighScore + fullUserObject.populationHighScore + fullUserObject.continentsHighScore + fullUserObject.capitalsHighScore)
         });
   }
-
-  // function filterByContinent (event) {
-  //   const filteredContinent = countries.filter((country) => {
-  //     if (event.target.value === 'the world') {
-  //       return true
-  //     } else if (event.target.value === country.continents[0]) {
-  //       return true
-  //     }
-  //       return false
-  //   }) 
-  //   setCountryList(filteredContinent)
-  // }
 
   function alphabetize ( a, b ) {
     if ( a.name.common < b.name.common ){
@@ -163,14 +156,20 @@ function App() {
           </Route>
           <Route path='/capitals'>
             <Capitals 
-              countries={[...countries.sort((a, b) => 0.5 - Math.random())]}/>
+              capitalCountryList={capitalCountryList}
+              setCapitalCountryList={setCapitalCountryList}
+              countries={countries}
+              capitalsContinent={capitalsContinent}
+              setCapitalsContinent={setCapitalsContinent}/>
           </Route>
           <Route exact path='/continents'>
             <Continents 
               alphabetize={alphabetize} 
               continentCountryList={continentCountryList}
               countries={countries}
-              setContinentCountryList={setContinentCountryList}/>
+              setContinentCountryList={setContinentCountryList}
+              selectedContinents={selectedContinents}
+              setSelectedContinents={setSelectedContinents}/>
           </Route>
           <Route exact path='/population'>
             <Population 
@@ -180,15 +179,15 @@ function App() {
             <Flags 
               allCountries={countries} 
               flagCountryList={flagCountryList} 
-              setFlagCountryList={setFlagCountryList}/>
+              setFlagCountryList={setFlagCountryList}
+              flagsContinent={flagsContinent}
+              setFlagsContinent={setFlagsContinent}/>
           </Route>
           <Route exact path='/'>
             <Home />
           </Route>
         </Switch>
-        <footer style={{textAlign: 'left', color: 'white', paddingLeft: '10px', paddingBottom: '10px', paddingTop: '20px'}}>
-          Background photo by <a style={{color: 'lightgray'}}href={'https://unsplash.com/@marjan_blan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'}>Marjan Blan | @marjanblan</a> on <a style={{color: 'lightgray'}} href={"https://unsplash.com/s/photos/world-map?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"}>Unsplash</a>
-        </footer>
+       
     </div>
   )
 }

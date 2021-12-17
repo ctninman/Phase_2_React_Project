@@ -24,6 +24,9 @@ function Home () {
           <h1>🇧🇪🇺🇸🇬🇩🇬🇷🇳🇮🇨🇳🇿🇼🇩🇯🇻🇺🇦🇷🇨🇾🇦🇿🇨🇺🇹🇳🇳🇵🇲🇦🇳🇱🇧🇩🇳🇷🇪🇨🇸🇬🇰🇪🇦🇬</h1>
         </div>
       </div>
+      <footer style={{textAlign: 'left', color: 'white', paddingLeft: '10px', paddingBottom: '10px', paddingTop: '20px'}}>
+          Background photo by <a style={{color: 'lightgray'}}href={'https://unsplash.com/@marjan_blan?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'}>Marjan Blan | @marjanblan</a> on <a style={{color: 'lightgray'}} href={"https://unsplash.com/s/photos/world-map?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"}>Unsplash</a>
+        </footer>
     </div>
   )
 }
