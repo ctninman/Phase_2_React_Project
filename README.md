@@ -1,10 +1,14 @@
-# WORLD QUIZ World
+![WORLD QUIZ WORLD logo](https://user-images.githubusercontent.com/89664157/175447691-e9773084-7aad-4239-89df-b588206221e9.png)
+
+React/JavaScript/CSS
+
+[DEPLOYED SITE](https://world-quiz-world.herokuapp.com/)
 
 [APP WALKTHROUGH](https://youtu.be/zqCPJJaqVRo)
 
 [LIVE APP WALKTHROUGH](https://www.loom.com/share/51002d9349524e829a52706af99748da)
 
-React Project - WORLD QUIZ World
+[BLOG: React Quiz with Unlimited Questions](https://dev.to/alternate_robot/react-quiz-with-unlimited-questions-32pi)
 
 ## Overview
 
