@@ -14,6 +14,8 @@ React/JavaScript/CSS
 
 Users can browse information about world countries using info from the RestCountries API. Web application includes information about all 195 countries of the world. It includes flag flashcards that can be filtered by continent, capital flashcards, a list of countries arranged by population size and continent. Users can also take four quizzes to test their knowledge, and save their high score.
 
+<img width="800" alt="Site Flag Section" src="https://user-images.githubusercontent.com/89664157/175752747-bf20d3a7-289d-43ec-a6df-2352e6bf05aa.png">
+
 ## Backstory
 
 Inspired by my 4 year-old son's love for country flags, I decided to create this project to help him learn and explore capitals, continents, and how many countries started with each letter of the alphabet. Taking the four quizzes available on this application, he got his high score up to 74 out of 100, including 25 out of 25 on the flag quiz. Not too shabby. It was an amazing experience to have him be the first tester of the site as it was being built, and spend many hours exploring and learning.
