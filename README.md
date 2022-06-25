@@ -43,6 +43,8 @@ The Flags section contains flashcards for each individual country. Upon load, ea
 
 The Population section contains an ordered list of countries by population size from largest to smallest. Users can create a list of countries that match a selected continent, as well as a selected population size range. 
 
+<img width="800" alt="Site Population Section" src="https://user-images.githubusercontent.com/89664157/175752801-dbd44f52-7e28-4cf3-95d8-cb6b860d74c0.png">
+
 ## Quizzes
 
 Users can take four separate quizzes: capitals, flags, population, and continents. Each quiz contains 25 questions. If a user enters a username, their highest score will be saved, and is accessed whenever the user enters their username. The total user score is a combination of the four quiz scores, and is displayed by the login bar. 
